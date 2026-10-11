@@ -73,7 +73,7 @@
     <section id="progress-view" class="view" hidden><div class="section-top"><div><h2>Ce que tu retiens</h2><p>Chaque mot a une progression distincte dans chaque sens.</p></div><button id="export-progress" class="secondary-button">Exporter mes progrès</button></div><div id="progress-summary" class="progress-summary"></div><div class="progress-grid"><article class="white-panel"><h3>Par thème</h3><div id="category-progress"></div></article><article class="white-panel"><h3>À retravailler</h3><p class="muted">Les mots qui t’ont posé le plus de difficultés.</p><div id="difficult-words"></div></article></div><div class="data-actions"><label class="secondary-button import-button">Importer mes progrès<input type="file" id="import-progress" accept="application/json,.json" hidden></label><button class="text-button" id="reset-progress">Effacer ma progression</button><p id="storage-message" role="status"></p></div></section>
     <footer class="footer"><span>English Lab · Ton espace de révision</span><button id="sources-button" class="text-button">Méthode & sources</button></footer>
   </main>
-  <dialog id="help-dialog"><div class="dialog-header"><h2>Méthode & sources</h2><button id="close-help" class="icon-button" aria-label="Fermer">×</button></div><div class="dialog-content"><h3>Comment utiliser le site</h3><p><strong>QCM :</strong> 13 séries de 10 entrées dans l’ordre de « Mes mots » : 1–10, 11–20, et ainsi de suite jusqu’à 121–130. Choisis parmi quatre traductions, consulte la correction et passe à la question suivante. Le bouton « Série suivante » apparaît au bilan. Chaque série fonctionne en anglais–français, français–anglais ou dans les deux sens (une question par entrée). Ton meilleur score par série et par sens est affiché dans le sélecteur à partir de tes sessions récentes. Le QCM ne fait pas monter le niveau des révisions espacées.</p><p><strong>Saisie :</strong> écris toi-même la traduction avant de vérifier. Choisis « Séries de 10 mots » pour les mêmes groupes qu’en QCM : 1–10, 11–20, et ainsi de suite. Chaque série contient exactement dix questions ; les erreurs sont reprises dans le bilan et le bouton « Série suivante » permet de continuer. Les modes Cartes et Test peuvent aussi utiliser ces séries. Un indice ou une réponse révélée ne fait pas progresser le mot. En dehors des séries de dix, les erreurs reviennent après d’autres questions.</p><p><strong>Cartes :</strong> dis ou écris la réponse avant de retourner la carte, puis indique si tu la connaissais.</p><p><strong>Test :</strong> réponds sans indice. Toutes les corrections arrivent à la fin. Le test ne modifie pas les intervalles de révision.</p><h3>Des révisions espacées</h3><p>Après une réponse correcte sans aide : révision prévue dans 1, 3, 7, 14 puis 30 jours. Un mot est « stabilisé » après trois validations espacées dans chaque sens. Une erreur ramène le prochain passage à 10 minutes. Ce calendrier est une règle de ce site, pas une garantie de mémorisation.</p><h3>Ton vocabulaire</h3><p><strong>Pourquoi 130 ?</strong> La liste contient 104 entrées de la fiche PDF, 16 adjectifs de la première capture et 10 formes verbales au passé de la deuxième. Ce sont des mots, des expressions et des formes verbales : pas nécessairement 130 mots isolés entièrement différents. Les traductions alternatives ne sont pas comptées comme des entrées supplémentaires, et les deux sens de traduction ne doublent pas ce total.</p><p>Les entrées proviennent de <strong>Fiche de vocabulaire.pdf</strong> et des deux captures du 5 octobre 2026. Les traductions déjà indiquées dans la fiche sont conservées. Les traductions manquantes sont complétées avec Cambridge Dictionary ou Collins ; les liens figurent dans « Mes mots ».</p><p>Certains mots ont plusieurs sens. Ici, les traductions correspondent au contexte professionnel des documents. Les verbes de la deuxième capture restent au passé. Les synonymes présents dans la liste sont acceptés lorsqu’ils traduisent le même libellé français.</p><h3>Tes données</h3><p>La progression reste dans ce navigateur, sur cet appareil. Exporte-la pour la conserver ou la transférer. Si la sauvegarde locale n’est pas disponible, un message te l’indique. Aucun compte n’est nécessaire.</p><p>L’écoute utilise les voix anglaises de ton navigateur. Sa disponibilité dépend de ton appareil.</p></div></dialog>
+  <dialog id="help-dialog"><div class="dialog-header"><h2>Méthode & sources</h2><button id="close-help" class="icon-button" aria-label="Fermer">×</button></div><div class="dialog-content"><h3>Comment utiliser le site</h3><p><strong>QCM :</strong> Des séries de 10 entrées dans l’ordre de « Mes mots » : 1–10, 11–20, et ainsi de suite. La dernière série contient les entrées restantes. Choisis parmi quatre traductions, consulte la correction et passe à la question suivante. Le bouton « Série suivante » apparaît au bilan. Chaque série fonctionne en anglais–français, français–anglais ou dans les deux sens (une question par entrée). Ton meilleur score par série et par sens est affiché dans le sélecteur à partir de tes sessions récentes. Le QCM ne fait pas monter le niveau des révisions espacées.</p><p><strong>Saisie :</strong> écris toi-même la traduction avant de vérifier. Choisis « Séries de 10 mots » pour les mêmes groupes qu’en QCM : 1–10, 11–20, et ainsi de suite. Chaque série contient dix questions, sauf la dernière si moins de dix entrées restent ; les erreurs sont reprises dans le bilan et le bouton « Série suivante » permet de continuer. Les modes Cartes et Test peuvent aussi utiliser ces séries. Un indice ou une réponse révélée ne fait pas progresser le mot. En dehors des séries de dix, les erreurs reviennent après d’autres questions.</p><p><strong>Cartes :</strong> dis ou écris la réponse avant de retourner la carte, puis indique si tu la connaissais.</p><p><strong>Test :</strong> réponds sans indice. Toutes les corrections arrivent à la fin. Le test ne modifie pas les intervalles de révision.</p><h3>Des révisions espacées</h3><p>Après une réponse correcte sans aide : révision prévue dans 1, 3, 7, 14 puis 30 jours. Un mot est « stabilisé » après trois validations espacées dans chaque sens. Une erreur ramène le prochain passage à 10 minutes. Ce calendrier est une règle de ce site, pas une garantie de mémorisation.</p><h3>Ton vocabulaire</h3><p><strong>Une entrée par traduction à réviser.</strong> Les entrées qui partagent la même traduction en contexte sont regroupées : par exemple « oversee / supervise » ou « strong / solid ». Une seule question est posée pour chaque groupe et les variantes anglaises sont acceptées en réponse. Les formes verbales au passé restent séparées de l’infinitif. Le total affiché correspond aux entrées à réviser après regroupement ; les variantes et les deux sens de traduction ne doublent pas ce total.</p><p>Les entrées proviennent de <strong>Fiche de vocabulaire.pdf</strong> et des deux captures du 5 octobre 2026. Les traductions déjà indiquées dans la fiche sont conservées. Les traductions manquantes sont complétées avec Cambridge Dictionary ou Collins ; les liens figurent dans « Mes mots ».</p><p>Certains mots ont plusieurs sens. Ici, les traductions correspondent au contexte professionnel des documents. Les verbes de la deuxième capture restent au passé. Les synonymes présents dans la liste sont acceptés lorsqu’ils traduisent le même libellé français.</p><h3>Tes données</h3><p>La progression reste dans ce navigateur, sur cet appareil. Exporte-la pour la conserver ou la transférer. Si la sauvegarde locale n’est pas disponible, un message te l’indique. Aucun compte n’est nécessaire.</p><p>L’écoute utilise les voix anglaises de ton navigateur. Sa disponibilité dépend de ton appareil.</p></div></dialog>
   <noscript>Active JavaScript dans ton navigateur pour utiliser les exercices de révision.</noscript>
   <div id="toast" class="toast" role="status" hidden></div>
 <script>
@@ -188,7 +188,8 @@ window.VOCABULARY = [
   {
     "id": "be-responsible-for",
     "en": [
-      "to be responsible for"
+      "to be responsible for",
+      "to be in charge of"
     ],
     "fr": [
       "être responsable de"
@@ -197,24 +198,10 @@ window.VOCABULARY = [
     "source": "Fiche PDF",
     "url": "https://dictionary.cambridge.org/dictionary/english-french/responsible",
     "dictionary": "Cambridge",
-    "context": "Garde la préposition dans la réponse anglaise."
-  },
-  {
-    "id": "be-in-charge-of",
-    "en": [
-      "to be in charge of"
-    ],
-    "fr": [
-      "être responsable de",
-      "être chargé de",
-      "être chargée de",
-      "être en charge de"
-    ],
-    "category": "Expressions & prépositions",
-    "source": "Fiche PDF",
-    "url": "https://www.collinsdictionary.com/dictionary/english-french/in-charge-of",
-    "dictionary": "Collins",
-    "context": "Garde la préposition dans la réponse anglaise."
+    "context": "Garde la préposition dans la réponse anglaise.",
+    "mergedIds": [
+      "be-in-charge-of"
+    ]
   },
   {
     "id": "be-interested-in",
@@ -251,7 +238,8 @@ window.VOCABULARY = [
   {
     "id": "deal-with",
     "en": [
-      "to deal with"
+      "to deal with",
+      "to handle"
     ],
     "fr": [
       "s’occuper de",
@@ -263,7 +251,10 @@ window.VOCABULARY = [
     "source": "Fiche PDF",
     "url": "https://www.collinsdictionary.com/dictionary/english-french/deal-with",
     "dictionary": "Collins",
-    "context": "Garde la préposition dans la réponse anglaise."
+    "context": "Garde la préposition dans la réponse anglaise.",
+    "mergedIds": [
+      "handle"
+    ]
   },
   {
     "id": "look-forward-to",
@@ -356,13 +347,17 @@ window.VOCABULARY = [
   {
     "id": "promote",
     "en": [
-      "to promote"
+      "to promote",
+      "to foster"
     ],
     "fr": [
       "promouvoir"
     ],
     "category": "Communication",
-    "source": "Fiche PDF"
+    "source": "Fiche PDF",
+    "mergedIds": [
+      "foster"
+    ]
   },
   {
     "id": "draft",
@@ -470,14 +465,18 @@ window.VOCABULARY = [
   {
     "id": "perform",
     "en": [
-      "to perform"
+      "to perform",
+      "to achieve"
     ],
     "fr": [
       "réaliser",
       "accomplir"
     ],
     "category": "Aide & accompagnement",
-    "source": "Fiche PDF"
+    "source": "Fiche PDF",
+    "mergedIds": [
+      "achieve"
+    ]
   },
   {
     "id": "support",
@@ -511,17 +510,6 @@ window.VOCABULARY = [
       "maintenir"
     ],
     "category": "Aide & accompagnement",
-    "source": "Fiche PDF"
-  },
-  {
-    "id": "achieve",
-    "en": [
-      "to achieve"
-    ],
-    "fr": [
-      "réaliser"
-    ],
-    "category": "Management",
     "source": "Fiche PDF"
   },
   {
@@ -569,18 +557,6 @@ window.VOCABULARY = [
     "fr": [
       "améliorer",
       "mettre en valeur"
-    ],
-    "category": "Management",
-    "source": "Fiche PDF"
-  },
-  {
-    "id": "handle",
-    "en": [
-      "to handle"
-    ],
-    "fr": [
-      "se charger de",
-      "s’occuper de"
     ],
     "category": "Management",
     "source": "Fiche PDF"
@@ -644,13 +620,17 @@ window.VOCABULARY = [
   {
     "id": "oversee",
     "en": [
-      "to oversee"
+      "to oversee",
+      "to supervise"
     ],
     "fr": [
       "superviser"
     ],
     "category": "Management",
-    "source": "Fiche PDF"
+    "source": "Fiche PDF",
+    "mergedIds": [
+      "supervise"
+    ]
   },
   {
     "id": "prevent",
@@ -662,31 +642,6 @@ window.VOCABULARY = [
       "éviter"
     ],
     "category": "Management",
-    "source": "Fiche PDF"
-  },
-  {
-    "id": "supervise",
-    "en": [
-      "to supervise"
-    ],
-    "fr": [
-      "superviser"
-    ],
-    "category": "Management",
-    "source": "Fiche PDF"
-  },
-  {
-    "id": "foster",
-    "en": [
-      "to foster"
-    ],
-    "fr": [
-      "promouvoir",
-      "encourager",
-      "nourrir",
-      "entretenir"
-    ],
-    "category": "Enseignement",
     "source": "Fiche PDF"
   },
   {
@@ -1065,7 +1020,8 @@ window.VOCABULARY = [
   {
     "id": "strong",
     "en": [
-      "strong"
+      "strong",
+      "solid"
     ],
     "fr": [
       "solide",
@@ -1078,23 +1034,10 @@ window.VOCABULARY = [
     "url": "https://dictionary.cambridge.org/dictionary/english-french/strong",
     "dictionary": "Cambridge",
     "kind": "adjective",
-    "context": "Pour décrire une expérience ou des compétences."
-  },
-  {
-    "id": "solid",
-    "en": [
+    "context": "Pour décrire une expérience ou des compétences.",
+    "mergedIds": [
       "solid"
-    ],
-    "fr": [
-      "solide",
-      "solides"
-    ],
-    "category": "Qualificatifs",
-    "source": "Fiche PDF",
-    "url": "https://dictionary.cambridge.org/dictionary/english-french/solid",
-    "dictionary": "Cambridge",
-    "kind": "adjective",
-    "context": "Pour décrire une expérience."
+    ]
   },
   {
     "id": "excellent",
@@ -1117,7 +1060,9 @@ window.VOCABULARY = [
   {
     "id": "wide",
     "en": [
-      "wide"
+      "wide",
+      "extensive",
+      "broad"
     ],
     "fr": [
       "étendu",
@@ -1130,43 +1075,11 @@ window.VOCABULARY = [
     "url": "https://dictionary.cambridge.org/dictionary/english-french/wide",
     "dictionary": "Cambridge",
     "kind": "adjective",
-    "context": "Pour décrire une expérience."
-  },
-  {
-    "id": "extensive",
-    "en": [
-      "extensive"
-    ],
-    "fr": [
-      "vaste",
-      "étendu",
-      "étendue",
-      "considérable"
-    ],
-    "category": "Qualificatifs",
-    "source": "Fiche PDF",
-    "url": "https://www.collinsdictionary.com/dictionary/english-french/extensive",
-    "dictionary": "Collins",
-    "kind": "adjective",
-    "context": "Pour décrire une expérience ou des connaissances."
-  },
-  {
-    "id": "broad",
-    "en": [
+    "context": "Pour décrire une expérience.",
+    "mergedIds": [
+      "extensive",
       "broad"
-    ],
-    "fr": [
-      "large",
-      "vaste",
-      "étendu",
-      "étendue"
-    ],
-    "category": "Qualificatifs",
-    "source": "Fiche PDF",
-    "url": "https://www.collinsdictionary.com/dictionary/english-french/broad",
-    "dictionary": "Collins",
-    "kind": "adjective",
-    "context": "Pour décrire une expérience."
+    ]
   },
   {
     "id": "varied",
@@ -1244,7 +1157,8 @@ window.VOCABULARY = [
     "id": "in-depth",
     "en": [
       "in depth",
-      "in-depth"
+      "in-depth",
+      "thorough"
     ],
     "fr": [
       "approfondi",
@@ -1258,7 +1172,10 @@ window.VOCABULARY = [
     "url": "https://dictionary.cambridge.org/dictionary/english-french/in-depth",
     "dictionary": "Cambridge",
     "kind": "adjective",
-    "context": "Pour décrire des connaissances."
+    "context": "Pour décrire des connaissances.",
+    "mergedIds": [
+      "thorough"
+    ]
   },
   {
     "id": "detailed",
@@ -1274,28 +1191,6 @@ window.VOCABULARY = [
     "source": "Fiche PDF",
     "url": "https://www.collinsdictionary.com/dictionary/english-french/detailed",
     "dictionary": "Collins",
-    "kind": "adjective",
-    "context": "Pour décrire des connaissances."
-  },
-  {
-    "id": "thorough",
-    "en": [
-      "thorough"
-    ],
-    "fr": [
-      "approfondi",
-      "approfondie",
-      "approfondies",
-      "minutieux",
-      "minutieuse",
-      "complet",
-      "complète",
-      "complètes"
-    ],
-    "category": "Qualificatifs",
-    "source": "Fiche PDF",
-    "url": "https://dictionary.cambridge.org/dictionary/english-french/thorough",
-    "dictionary": "Cambridge",
     "kind": "adjective",
     "context": "Pour décrire des connaissances."
   },
@@ -1537,7 +1432,8 @@ window.VOCABULARY = [
   {
     "id": "leading-edge",
     "en": [
-      "leading-edge"
+      "leading-edge",
+      "cutting-edge"
     ],
     "fr": [
       "de pointe"
@@ -1547,23 +1443,10 @@ window.VOCABULARY = [
     "url": "https://www.collinsdictionary.com/dictionary/english-french/leading-edge",
     "dictionary": "Collins",
     "kind": "adjective",
-    "context": "Pour décrire une technologie."
-  },
-  {
-    "id": "cutting-edge",
-    "en": [
+    "context": "Pour décrire une technologie.",
+    "mergedIds": [
       "cutting-edge"
-    ],
-    "fr": [
-      "d’avant-garde",
-      "de pointe"
-    ],
-    "category": "Qualificatifs",
-    "source": "Fiche PDF",
-    "url": "https://dictionary.cambridge.org/dictionary/english-french/cutting-edge",
-    "dictionary": "Cambridge",
-    "kind": "adjective",
-    "context": "Pour décrire une technologie."
+    ]
   },
   {
     "id": "latest",
@@ -1749,7 +1632,8 @@ window.VOCABULARY = [
   {
     "id": "meet-deadlines",
     "en": [
-      "meet deadlines"
+      "meet deadlines",
+      "meeting deadlines"
     ],
     "fr": [
       "respecter les délais",
@@ -1759,7 +1643,10 @@ window.VOCABULARY = [
     "source": "Fiche PDF",
     "url": "https://dictionary.cambridge.org/dictionary/english-french/deadline",
     "dictionary": "Cambridge",
-    "context": "Traduction en contexte professionnel."
+    "context": "Traduction en contexte professionnel.",
+    "mergedIds": [
+      "meeting-deadlines"
+    ]
   },
   {
     "id": "good-time-management",
@@ -1829,19 +1716,6 @@ window.VOCABULARY = [
     ],
     "fr": [
       "volonté de réussir"
-    ],
-    "category": "Compétences transversales",
-    "source": "Fiche PDF"
-  },
-  {
-    "id": "meeting-deadlines",
-    "en": [
-      "meeting deadlines"
-    ],
-    "fr": [
-      "respecter des délais",
-      "respect des délais",
-      "respecter les délais"
     ],
     "category": "Compétences transversales",
     "source": "Fiche PDF"
@@ -2059,7 +1933,7 @@ window.VOCABULARY = [
   function isSeriesMode(config){return config.mode==='qcm'||config.scope==='series';}
   function qcmChoices(word,direction,words,random=Math.random){const language=direction==='en-fr'?'fr':'en',target=direction==='en-fr'?word.fr[0]:word.en[0],correctAnswers=new Set(accepted(word,direction,words).map(a=>canonical(a,language))),seen=new Set([canonical(target,language)]);const candidates=shuffle(words.filter(w=>w.id!==word.id),random).sort((a,b)=>{const rank=w=>w.category===word.category?0:form(w)===form(word)?1:2;return rank(a)-rank(b);});const options=[target];for(const candidate of candidates){const text=direction==='en-fr'?candidate.fr[0]:candidate.en[0],key=canonical(text,language);if(seen.has(key)||accepted(candidate,direction,words).some(a=>correctAnswers.has(canonical(a,language))))continue;seen.add(key);options.push(text);if(options.length===4)break;}return shuffle(options,random);}
   function makeQueue(words,records,config,now=Date.now(),random=Math.random){if(isSeriesMode(config))return qcmSeries(words,config.series).words.map((word,i)=>{const direction=config.direction==='mix'?(i%2?'fr-en':'en-fr'):config.direction;return {id:word.id,direction,key:word.id+':'+direction};});const directions=config.direction==='mix'?['en-fr','fr-en']:[config.direction];let pool=words.filter(w=>config.category==='all'||w.category===config.category).flatMap(word=>directions.map(direction=>({id:word.id,direction,key:word.id+':'+direction})));if(config.scope==='mistakes')pool=pool.filter(q=>(records[q.key]?.wrong||0)>0);if(config.mode!=='test'&&config.scope==='adaptive')pool=pool.filter(q=>!records[q.key]||records[q.key].due<=now);pool=shuffle(pool,random);if(config.scope==='adaptive'&&config.mode!=='test')pool.sort((a,b)=>{const ra=records[a.key],rb=records[b.key];return (ra?(ra.level===0?-2:-1):0)-(rb?(rb.level===0?-2:-1):0);});const size=config.size==='all'?pool.length:Number(config.size);return pool.slice(0,size);}
-  function validProgress(data,words){if(!data||data.version!==1||!data.records||typeof data.records!=='object'||Array.isArray(data.records))throw new Error('Ce fichier ne contient pas une progression English Lab valide.');const ids=new Set(words.map(w=>w.id));const records={};for(const [key,r] of Object.entries(data.records)){const separator=key.lastIndexOf(':');if(!ids.has(key.slice(0,separator))||!['en-fr','fr-en'].includes(key.slice(separator+1)))continue;if(!r||typeof r!=='object')throw new Error('Une fiche de progression est invalide.');const values=['level','correct','wrong','due','last','promotedAt'];if(values.some(k=>!Number.isFinite(r[k])||r[k]<0)||!Number.isInteger(r.level)||r.level>5||!Number.isInteger(r.correct)||!Number.isInteger(r.wrong))throw new Error('Une valeur de progression est invalide.');records[key]=Object.fromEntries(values.map(k=>[k,r[k]]));}return {version:1,records,history:Array.isArray(data.history)?data.history.slice(-100).filter(h=>h&&Number.isFinite(h.at)&&Number.isFinite(h.total)&&Number.isFinite(h.correct)&&h.total>=0&&h.correct>=0&&h.correct<=h.total):[]};}
+  function validProgress(data,words){if(!data||data.version!==1||!data.records||typeof data.records!=='object'||Array.isArray(data.records))throw new Error('Ce fichier ne contient pas une progression English Lab valide.');const ids=new Map(words.flatMap(w=>[w.id,...(w.mergedIds||[])].map(id=>[id,w.id])));const records={};for(const [key,r] of Object.entries(data.records)){const separator=key.lastIndexOf(':'),id=ids.get(key.slice(0,separator)),direction=key.slice(separator+1);if(!id||!['en-fr','fr-en'].includes(direction))continue;if(!r||typeof r!=='object')throw new Error('Une fiche de progression est invalide.');const values=['level','correct','wrong','due','last','promotedAt'];if(values.some(k=>!Number.isFinite(r[k])||r[k]<0)||!Number.isInteger(r.level)||r.level>5||!Number.isInteger(r.correct)||!Number.isInteger(r.wrong))throw new Error('Une valeur de progression est invalide.');const destination=id+':'+direction,previous=records[destination],clean=Object.fromEntries(values.map(k=>[k,r[k]]));records[destination]=previous?{...(clean.last>=previous.last?clean:previous),correct:clean.correct+previous.correct,wrong:clean.wrong+previous.wrong}:clean;}return {version:1,records,history:Array.isArray(data.history)?data.history.slice(-100).filter(h=>h&&Number.isFinite(h.at)&&Number.isFinite(h.total)&&Number.isFinite(h.correct)&&h.total>=0&&h.correct>=0&&h.correct<=h.total):[]};}
   root.RevisionCore={DAY,normalize,canonical,accepted,grade,updateRecord,qcmSeries,isSeriesMode,qcmChoices,makeQueue,validProgress};
 })(typeof window==='undefined'?globalThis:window);
 
@@ -2085,9 +1959,9 @@ window.VOCABULARY = [
  function renderPrefs(){for(const kind of ['direction','mode'])document.querySelectorAll(`[data-${kind}]`).forEach(b=>{const yes=b.dataset[kind]===config[kind];b.classList.toggle('selected',yes);b.setAttribute('aria-pressed',String(yes));});$('category').value=config.category;$('scope').value=config.scope;$('session-size').value=config.size;renderQcmPrefs();}
  function renderQcmPrefs(){
   const active=C.isSeriesMode(config),series=C.qcmSeries(words,config.series);config.series=series.index;
-  $('qcm-settings').hidden=!active;$('qcm-banner').hidden=!active;$('standard-settings').hidden=active;$('scope-settings').hidden=config.mode==='qcm';$('series-format').textContent=config.mode==='qcm'?'Une entrée par question · 4 choix':config.mode==='typing'?'10 traductions à écrire':config.mode==='flash'?'10 cartes mémoire':'10 traductions · corrections au bilan';
+  $('qcm-settings').hidden=!active;$('qcm-banner').hidden=!active;$('standard-settings').hidden=active;$('scope-settings').hidden=config.mode==='qcm';$('series-format').textContent=config.mode==='qcm'?'Une entrée par question · 4 choix':config.mode==='typing'?`${series.words.length} traductions à écrire`:config.mode==='flash'?`${series.words.length} cartes mémoire`:`${series.words.length} traductions · corrections au bilan`;
   $('qcm-series').innerHTML=Array.from({length:series.count},(_,i)=>{
-   const block=C.qcmSeries(words,i),scores=data.history.filter(h=>h.mode===config.mode&&h.completeSeries&&h.series===i&&h.direction===config.direction&&h.total===block.words.length),best=scores.length?Math.max(...scores.map(h=>h.correct)):null;
+   const block=C.qcmSeries(words,i),scores=data.history.filter(h=>h.mode===config.mode&&h.completeSeries&&h.series===i&&h.direction===config.direction&&h.total===block.words.length&&h.seriesIds===block.words.map(w=>w.id).join('|')),best=scores.length?Math.max(...scores.map(h=>h.correct)):null;
    return `<option value="${i}">Série ${i+1} · ${block.start+1}–${block.end}${best===null?'':` · ${best}/${block.words.length}`}</option>`;
   }).join('');$('qcm-series').value=String(series.index);
   $('qcm-series-label').textContent=`Série ${series.index+1} / ${series.count} · entrées ${series.start+1} à ${series.end}`;
@@ -2100,19 +1974,19 @@ window.VOCABULARY = [
  function start(overrides={}){config={...config,...overrides};renderPrefs();savePrefs();queue=C.makeQueue(words,data.records,config);position=0;answered=false;results=[];retryCounts={};started=Date.now();baseCount=queue.length;$('study-card').hidden=queue.length===0;$('session-end').hidden=queue.length>0;showView('revision');if(!queue.length){emptySession();}else renderQuestion();renderStats();return state();}
  function emptySession(){let title='Tout est à jour pour ce thème.',message='Les mots déjà travaillés reviendront à leur date de révision. Tu peux aussi choisir « Toute la liste ».';if(config.scope==='mistakes'){title='Aucune erreur à revoir ici.';message='Fais une session de saisie pour repérer les mots à retravailler.';}if(!words.length){title='Le vocabulaire n’a pas pu être chargé.';message='Vérifie que les fichiers du site sont présents.';}$('session-end').innerHTML=`<span class="end-badge">${config.scope==='mistakes'?'MES ERREURS':'RÉVISION'}</span><h2>${esc(title)}</h2><p>${esc(message)}</p><div class="end-actions"><button class="primary-button" id="practice-all">Réviser toute la liste</button></div>`;$('practice-all').onclick=()=>start({scope:'all'});updateStrip();}
  function updateStrip(){const test=config.mode==='test';const labels={typing:C.isSeriesMode(config)?'SAISIE · SÉRIE '+(config.series+1):config.scope==='adaptive'?'RÉVISION ADAPTÉE':config.scope==='mistakes'?'MES ERREURS':'ENTRAÎNEMENT',flash:'CARTES MÉMOIRE',qcm:'QCM · SÉRIE '+(config.series+1),test:'TEST SANS INDICE'};$('session-label').textContent=labels[config.mode];$('session-position').textContent=queue.length?`${Math.min(position+1,queue.length)} / ${queue.length}`:'0 / 0';const correct=results.filter(r=>r.correct&&!r.hinted).length;$('session-score').textContent=test?'Corrections à la fin':plural(correct,'réponse juste','réponses justes');const value=queue.length?Math.round(position/queue.length*100):100;$('session-bar').style.width=value+'%';document.querySelector('.progress-track').setAttribute('aria-valuenow',value);}
- function renderQuestion(){if(position>=queue.length){finish();return;}const q=current(),w=byId.get(q.id);answered=false;hinted=false;$('study-card').hidden=false;$('session-end').hidden=true;for(const id of ['feedback','next-actions','rating-actions'])$(id).hidden=true;$('feedback').className='feedback';$('answer-form').hidden=['flash','qcm'].includes(config.mode);$('qcm-choices').hidden=config.mode!=='qcm';$('flash-actions').hidden=config.mode!=='flash';$('question-category').textContent=w.category;$('question-language').textContent=q.direction==='en-fr'?'ANGLAIS / FRANÇAIS':'FRANÇAIS / ANGLAIS';$('question-instruction').textContent=q.direction==='en-fr'?'Traduis en français':'Traduis en anglais';$('question-word').textContent=prompt(q);$('question-word').lang=q.direction==='en-fr'?'en':'fr';$('question-context').textContent=(config.mode==='test'||C.isSeriesMode(config))&&w.kind==='past'?'Verbe au passé.':w.context||'';$('answer-input').value='';$('answer-input').disabled=false;$('check').disabled=false;$('hint').hidden=['test','qcm'].includes(config.mode);$('hint').disabled=false;$('hint').textContent='Un indice';$('skip').hidden=false;$('speak').hidden=q.direction!=='en-fr'||!('speechSynthesis' in window)||config.mode==='test';$('study-tip').textContent=config.mode==='qcm'?'Choisis une traduction parmi les quatre propositions.':config.mode==='test'?'Sans aide. Les corrections arrivent à la fin.':config.mode==='flash'?'Essaie de retrouver la réponse avant de retourner la carte.':'Une traduction suffit. Majuscules et accents sont tolérés.';$('review-note-title').textContent=C.isSeriesMode(config)?'Dix entrées, puis la série suivante.':config.mode==='test'?'Un bilan à la fin du test.':'Les mots difficiles reviennent.';$('review-note').textContent=config.mode==='qcm'?'La correction apparaît après chaque choix. Tu peux refaire chaque série.':config.mode==='typing'&&C.isSeriesMode(config)?'Écris les traductions des dix entrées. Les erreurs sont regroupées dans le bilan.':config.mode==='flash'&&C.isSeriesMode(config)?'Dix cartes dans l’ordre de la liste, puis le bilan de la série.':config.mode==='test'?'Le score mesure cette session, sans modifier ton calendrier.':'Les erreurs sont reproposées plus loin dans la session.';qcmOptions=config.mode==='qcm'?C.qcmChoices(w,q.direction,words):[];$('qcm-choices').innerHTML=qcmOptions.map((text,i)=>`<button type="button" class="qcm-choice" data-qcm-choice="${i}" aria-pressed="false"><span class="qcm-number" aria-hidden="true">${i+1}</span><span lang="${q.direction==='en-fr'?'fr':'en'}">${esc(text)}</span></button>`).join('');document.querySelectorAll('[data-qcm-choice]').forEach(b=>b.onclick=()=>chooseQcm(Number(b.dataset.qcmChoice)));document.querySelector('.keyboard-note').textContent=config.mode==='qcm'?'1 à 4 pour choisir · Entrée pour continuer':'Entrée pour valider';updateStrip();if(!['flash','qcm'].includes(config.mode)&&window.innerWidth>660&&activeView==='revision')$('answer-input').focus({preventScroll:true});}
+ function renderQuestion(){if(position>=queue.length){finish();return;}const q=current(),w=byId.get(q.id);answered=false;hinted=false;$('study-card').hidden=false;$('session-end').hidden=true;for(const id of ['feedback','next-actions','rating-actions'])$(id).hidden=true;$('feedback').className='feedback';$('answer-form').hidden=['flash','qcm'].includes(config.mode);$('qcm-choices').hidden=config.mode!=='qcm';$('flash-actions').hidden=config.mode!=='flash';$('question-category').textContent=w.category;$('question-language').textContent=q.direction==='en-fr'?'ANGLAIS / FRANÇAIS':'FRANÇAIS / ANGLAIS';$('question-instruction').textContent=q.direction==='en-fr'?'Traduis en français':'Traduis en anglais';$('question-word').textContent=prompt(q);$('question-word').lang=q.direction==='en-fr'?'en':'fr';$('question-context').textContent=(config.mode==='test'||C.isSeriesMode(config))&&w.kind==='past'?'Verbe au passé.':w.context||'';$('answer-input').value='';$('answer-input').disabled=false;$('check').disabled=false;$('hint').hidden=['test','qcm'].includes(config.mode);$('hint').disabled=false;$('hint').textContent='Un indice';$('skip').hidden=false;$('speak').hidden=q.direction!=='en-fr'||!('speechSynthesis' in window)||config.mode==='test';$('study-tip').textContent=config.mode==='qcm'?'Choisis une traduction parmi les quatre propositions.':config.mode==='test'?'Sans aide. Les corrections arrivent à la fin.':config.mode==='flash'?'Essaie de retrouver la réponse avant de retourner la carte.':'Une traduction suffit. Majuscules et accents sont tolérés.';$('review-note-title').textContent=C.isSeriesMode(config)?`${queue.length} entrées dans cette série.`:config.mode==='test'?'Un bilan à la fin du test.':'Les mots difficiles reviennent.';$('review-note').textContent=config.mode==='qcm'?'La correction apparaît après chaque choix. Tu peux refaire chaque série.':config.mode==='typing'&&C.isSeriesMode(config)?`Écris les ${queue.length} traductions. Les erreurs sont regroupées dans le bilan.`:config.mode==='flash'&&C.isSeriesMode(config)?`${queue.length} cartes dans l’ordre de la liste, puis le bilan de la série.`:config.mode==='test'?'Le score mesure cette session, sans modifier ton calendrier.':'Les erreurs sont reproposées plus loin dans la session.';qcmOptions=config.mode==='qcm'?C.qcmChoices(w,q.direction,words):[];$('qcm-choices').innerHTML=qcmOptions.map((text,i)=>`<button type="button" class="qcm-choice" data-qcm-choice="${i}" aria-pressed="false"><span class="qcm-number" aria-hidden="true">${i+1}</span><span lang="${q.direction==='en-fr'?'fr':'en'}">${esc(text)}</span></button>`).join('');document.querySelectorAll('[data-qcm-choice]').forEach(b=>b.onclick=()=>chooseQcm(Number(b.dataset.qcmChoice)));document.querySelector('.keyboard-note').textContent=config.mode==='qcm'?'1 à 4 pour choisir · Entrée pour continuer':'Entrée pour valider';updateStrip();if(!['flash','qcm'].includes(config.mode)&&window.innerWidth>660&&activeView==='revision')$('answer-input').focus({preventScroll:true});}
  function record(q,correct){data.records[q.key]=C.updateRecord(data.records[q.key],correct,Date.now());save();renderStats();}
  function reinsert(q){const count=retryCounts[q.key]||0;if(count>=2)return;retryCounts[q.key]=count+1;const index=Math.min(queue.length,position+4);queue.splice(index,0,{...q,retry:true});}
  function submit(value,skip=false){if(!current()||answered||config.mode==='flash')return {error:'Aucune réponse à saisir.'};const input=String(value).trim();if(!input&&!skip){$('answer-input').focus();return {error:'Écris une traduction ou choisis « Je ne sais pas ».'};}if(config.mode==='qcm'&&!skip&&!qcmOptions.includes(input))return {error:'Choisis une des propositions affichées.'};const q=current(),w=byId.get(q.id),g=C.grade(input,w,q.direction,words);answered=true;const effective=g.correct&&!hinted;results.push({q:{...q},answer:input,correct:g.correct,hinted,accepted:g.accepted});if(config.mode==='test'){position++;renderQuestion();return {recorded:true,correction:'Disponible à la fin du test.'};}if(config.mode!=='qcm'){record(q,effective);if(!effective&&!C.isSeriesMode(config))reinsert(q);}else document.querySelectorAll('[data-qcm-choice]').forEach(b=>{const text=qcmOptions[Number(b.dataset.qcmChoice)];b.disabled=true;b.classList.toggle('correct',C.grade(text,w,q.direction,words).correct);b.classList.toggle('wrong',text===input&&!g.correct);b.setAttribute('aria-pressed',String(text===input));});$('answer-input').disabled=true;$('check').disabled=true;$('hint').disabled=true;$('skip').hidden=true;$('feedback').hidden=false;$('feedback').className='feedback '+(effective?'correct':g.correct?'':'wrong');let title=effective?'Bien joué, c’est ça.':g.correct?'Juste, avec un indice.':g.close&&config.mode!=='qcm'?'Presque : vérifie l’orthographe.':'À retenir pour la prochaine fois.';let note=config.mode==='qcm'?(effective?'Bonne réponse. Passe à l’entrée suivante.':'Retiens la traduction, puis continue la série.'):effective?'Prochaine révision prévue : '+new Date(data.records[q.key].due).toLocaleDateString('fr-FR',{day:'numeric',month:'long'})+'.':C.isSeriesMode(config)?'Ce mot reste à réviser. Retrouve-le dans le bilan de cette série.':'Ce mot reviendra dans cette session et reste à réviser.';$('feedback').innerHTML=`<h3>${esc(title)}</h3><p class="feedback-answer" lang="${q.direction==='en-fr'?'fr':'en'}">${esc(target(q).join(' · '))}</p>${q.direction==='fr-en'&&g.accepted.length>w.en.length?`<p><small>Aussi accepté : ${esc(g.accepted.filter(a=>!w.en.includes(a)).join(' · '))}</small></p>`:''}${w.note?`<p><small>${esc(w.note)}</small></p>`:''}<p><small>${esc(note)}</small></p>`;$('next-actions').hidden=false;updateStrip();$('next').focus({preventScroll:true});return {correct:g.correct,withHint:hinted,accepted:g.accepted};}
  function next(){if(!answered)return;position++;renderQuestion();}
  function reveal(){if(!current()||config.mode!=='flash'||answered)return;const q=current(),w=byId.get(q.id);$('flash-actions').hidden=true;$('feedback').hidden=false;$('feedback').innerHTML=`<p class="feedback-answer">${esc(target(q).join(' · '))}</p>${w.note?`<p><small>${esc(w.note)}</small></p>`:''}`;$('rating-actions').hidden=false;$('skip').hidden=true;document.querySelector('[data-rating="1"]').focus({preventScroll:true});}
  function rate(correct){if(!current()||config.mode!=='flash'||$('rating-actions').hidden)return;const q=current();answered=true;results.push({q:{...q},answer:'Auto-évaluation',correct,hinted:false});record(q,correct);if(!correct&&!C.isSeriesMode(config))reinsert(q);position++;renderQuestion();}
- function finish(){const firstResults=results.filter(r=>!r.q.retry);const correct=firstResults.filter(r=>r.correct&&!r.hinted).length;data.history.push({at:Date.now(),total:firstResults.length,correct,mode:config.mode,...(C.isSeriesMode(config)?{series:config.series,direction:config.direction,completeSeries:firstResults.length===C.qcmSeries(words,config.series).words.length}:{})});data.history=data.history.slice(-100);save();renderQcmPrefs();$('study-card').hidden=true;$('session-end').hidden=false;const seconds=Math.max(1,Math.round((Date.now()-started)/1000)),minutes=Math.floor(seconds/60),time=minutes?`${minutes} min ${seconds%60} s`:`${seconds} s`;const mistakes=results.filter(r=>!r.correct||r.hinted);const uniqueMistakes=[...new Map(mistakes.map(r=>[r.q.key,r])).values()];$('session-end').innerHTML=`<span class="end-badge">SESSION TERMINÉE</span><div class="end-number">${correct}<span style="font-size:28px;color:var(--muted);letter-spacing:0"> / ${firstResults.length}</span></div><h2>${correct===firstResults.length?'Tout juste. Bien joué !':'Chaque passage compte.'}</h2><p>${esc(plural(firstResults.length,'question','questions'))} au premier passage · ${esc(time)}${results.length>baseCount?` · ${results.length-baseCount} rappels supplémentaires`:''}</p><p>${config.mode==='qcm'?'Une question par entrée. Tu peux refaire cette série ou continuer dans l’ordre.':config.mode==='flash'?'Score issu de tes auto-évaluations.':config.mode==='test'?'Le test est terminé. Consulte les corrections ci-dessous.':'Les réponses avec indice ne comptent pas dans ce score.'}</p><div class="end-actions">${C.isSeriesMode(config)&&config.series+1<C.qcmSeries(words).count?'<button id="next-series" class="primary-button">Série suivante →</button>':''}<button id="again" class="${C.isSeriesMode(config)?'secondary-button':'primary-button'}">${C.isSeriesMode(config)?'Refaire cette série':'Nouvelle session'}</button>${uniqueMistakes.length?'<button id="redo-errors" class="secondary-button">Revoir les erreurs de cette session</button>':''}</div><div class="end-list">${(config.mode==='test'||C.isSeriesMode(config)?firstResults:uniqueMistakes).map(r=>`<details><summary>${r.correct&&!r.hinted?'✓':'○'} ${esc(prompt(r.q))} <small>(${r.q.direction==='en-fr'?'EN / FR':'FR / EN'})</small></summary><p>Ta réponse : ${esc(r.answer||'Sans réponse')}</p><p><strong>${esc(target(r.q).join(' · '))}</strong></p>${byId.get(r.q.id).note?`<p>${esc(byId.get(r.q.id).note)}</p>`:''}</details>`).join('')}</div>`;$('again').onclick=()=>start();if($('next-series'))$('next-series').onclick=()=>start({series:config.series+1});if($('redo-errors'))$('redo-errors').onclick=()=>{const previous=[...uniqueMistakes];config.mode='typing';config.scope='mistakes';renderPrefs();savePrefs();queue=C.shuffle(previous.map(r=>({...r.q,retry:false})));position=0;results=[];retryCounts={};baseCount=queue.length;started=Date.now();renderQuestion();};updateStrip();$('session-bar').style.width='100%';document.querySelector('.progress-track').setAttribute('aria-valuenow','100');$('session-position').textContent=`${queue.length} / ${queue.length}`;renderStats();}
+ function finish(){const firstResults=results.filter(r=>!r.q.retry);const correct=firstResults.filter(r=>r.correct&&!r.hinted).length;data.history.push({at:Date.now(),total:firstResults.length,correct,mode:config.mode,...(C.isSeriesMode(config)?{series:config.series,direction:config.direction,seriesIds:firstResults.map(r=>r.q.id).join('|'),completeSeries:firstResults.length===C.qcmSeries(words,config.series).words.length}:{})});data.history=data.history.slice(-100);save();renderQcmPrefs();$('study-card').hidden=true;$('session-end').hidden=false;const seconds=Math.max(1,Math.round((Date.now()-started)/1000)),minutes=Math.floor(seconds/60),time=minutes?`${minutes} min ${seconds%60} s`:`${seconds} s`;const mistakes=results.filter(r=>!r.correct||r.hinted);const uniqueMistakes=[...new Map(mistakes.map(r=>[r.q.key,r])).values()];$('session-end').innerHTML=`<span class="end-badge">SESSION TERMINÉE</span><div class="end-number">${correct}<span style="font-size:28px;color:var(--muted);letter-spacing:0"> / ${firstResults.length}</span></div><h2>${correct===firstResults.length?'Tout juste. Bien joué !':'Chaque passage compte.'}</h2><p>${esc(plural(firstResults.length,'question','questions'))} au premier passage · ${esc(time)}${results.length>baseCount?` · ${results.length-baseCount} rappels supplémentaires`:''}</p><p>${config.mode==='qcm'?'Une question par entrée. Tu peux refaire cette série ou continuer dans l’ordre.':config.mode==='flash'?'Score issu de tes auto-évaluations.':config.mode==='test'?'Le test est terminé. Consulte les corrections ci-dessous.':'Les réponses avec indice ne comptent pas dans ce score.'}</p><div class="end-actions">${C.isSeriesMode(config)&&config.series+1<C.qcmSeries(words).count?'<button id="next-series" class="primary-button">Série suivante →</button>':''}<button id="again" class="${C.isSeriesMode(config)?'secondary-button':'primary-button'}">${C.isSeriesMode(config)?'Refaire cette série':'Nouvelle session'}</button>${uniqueMistakes.length?'<button id="redo-errors" class="secondary-button">Revoir les erreurs de cette session</button>':''}</div><div class="end-list">${(config.mode==='test'||C.isSeriesMode(config)?firstResults:uniqueMistakes).map(r=>`<details><summary>${r.correct&&!r.hinted?'✓':'○'} ${esc(prompt(r.q))} <small>(${r.q.direction==='en-fr'?'EN / FR':'FR / EN'})</small></summary><p>Ta réponse : ${esc(r.answer||'Sans réponse')}</p><p><strong>${esc(target(r.q).join(' · '))}</strong></p>${byId.get(r.q.id).note?`<p>${esc(byId.get(r.q.id).note)}</p>`:''}</details>`).join('')}</div>`;$('again').onclick=()=>start();if($('next-series'))$('next-series').onclick=()=>start({series:config.series+1});if($('redo-errors'))$('redo-errors').onclick=()=>{const previous=[...uniqueMistakes];config.mode='typing';config.scope='mistakes';renderPrefs();savePrefs();queue=C.shuffle(previous.map(r=>({...r.q,retry:false})));position=0;results=[];retryCounts={};baseCount=queue.length;started=Date.now();renderQuestion();};updateStrip();$('session-bar').style.width='100%';document.querySelector('.progress-track').setAttribute('aria-valuenow','100');$('session-position').textContent=`${queue.length} / ${queue.length}`;renderStats();}
  function renderStats(){const now=Date.now();let due=0,learning=0,mastered=0;for(const w of words){const rs=['en-fr','fr-en'].map(d=>data.records[w.id+':'+d]);if(rs.some(r=>!r||r.due<=now))due++;if(rs.every(r=>r&&r.level>=3))mastered++;else if(rs.some(r=>r&&(r.correct+r.wrong)>0))learning++;}$('due-count').textContent=due;$('learning-count').textContent=learning;$('mastered-count').textContent=mastered;return {due,learning,mastered};}
  function renderWords(){const search=C.normalize($('word-search').value);const list=words.filter(w=>(wordCategory==='all'||w.category===wordCategory)&&(!search||C.normalize([...w.en,...w.fr].join(' ')).includes(search)));$('words-result').textContent=plural(list.length,'entrée affichée','entrées affichées');$('word-rows').innerHTML=list.map(w=>`<tr><td class="word-number">${words.indexOf(w)+1}</td><td>${esc(w.en.join(' · '))}${w.context?`<small>${esc(w.context)}</small>`:''}${w.note?`<small>${esc(w.note)}</small>`:''}</td><td>${esc(w.fr.join(' · '))}</td><td>${esc(w.category)}</td><td>${esc(w.source)}${w.url?`<br><a href="${esc(w.url)}" target="_blank" rel="noopener noreferrer">${esc(w.dictionary||'Dictionnaire')}</a>`:''}</td></tr>`).join('')||'<tr><td colspan="5">Aucun mot ne correspond à ta recherche.</td></tr>';}
  function renderProgress(){const stats=renderStats(),records=Object.values(data.records),good=records.reduce((n,r)=>n+r.correct,0),bad=records.reduce((n,r)=>n+r.wrong,0),accuracy=good+bad?Math.round(good/(good+bad)*100):null;$('progress-summary').innerHTML=`<div><strong>${stats.mastered} / ${words.length}</strong><span>Mots stabilisés dans les deux sens</span></div><div><strong>${accuracy===null?'—':accuracy+' %'}</strong><span>Réussite en révision, sans aide</span></div><div><strong>${data.history.length}</strong><span>Sessions terminées</span></div>`;$('category-progress').innerHTML=categories.map(category=>{const list=words.filter(w=>w.category===category),stable=list.filter(w=>['en-fr','fr-en'].every(d=>(data.records[w.id+':'+d]?.level||0)>=3)).length;return `<div class="category-progress-row"><div><span>${esc(category)}</span><span>${stable} / ${list.length} stabilisés</span></div><div class="category-progress-track"><span style="width:${stable/list.length*100}%"></span></div></div>`;}).join('');const difficult=words.map(w=>({w,wrong:['en-fr','fr-en'].reduce((sum,d)=>sum+(data.records[w.id+':'+d]?.wrong||0),0)})).filter(x=>x.wrong).sort((a,b)=>b.wrong-a.wrong).slice(0,8);$('difficult-words').innerHTML=difficult.map(({w,wrong})=>`<div class="difficult-item"><span><strong>${esc(w.en[0])}</strong><br><small>${esc(w.fr[0])}</small></span><small>${esc(plural(wrong,'erreur','erreurs'))}</small></div>`).join('')||'<p class="muted">Les mots difficiles apparaîtront ici après tes premières révisions.</p>';}
  function state(){const q=current();return {view:activeView,config:{...config},position,total:queue.length,answered,question:q&&position<queue.length?{word:prompt(q),direction:q.direction,category:byId.get(q.id).category,...(config.mode==='qcm'?{options:[...qcmOptions]}:{})}:null};}
- $('total-words').textContent=words.length;$('word-count').textContent=words.length;$('vocab-count-note').textContent=`${words.length} entrées : ${words.filter(w=>w.source==='Fiche PDF').length} de la fiche PDF, ${words.filter(w=>w.source==='Capture 20:46').length} adjectifs de personnalité et ${words.filter(w=>w.kind==='past').length} formes verbales au passé. Une entrée peut être un mot ou une expression.`;
+ $('total-words').textContent=words.length;$('word-count').textContent=words.length;$('vocab-count-note').textContent=`${words.length} entrées : ${words.filter(w=>w.source==='Fiche PDF').length} de la fiche PDF, ${words.filter(w=>w.source==='Capture 20:46').length} adjectifs de personnalité et ${words.filter(w=>w.kind==='past').length} formes verbales au passé. Une entrée peut être un mot ou une expression. ${words.reduce((n,w)=>n+(w.mergedIds?.length||0),0)} doublons regroupés ; les variantes anglaises restent acceptées.`;
  for(const category of categories){const option=document.createElement('option');option.value=category;option.textContent=category;$('category').appendChild(option);}
  $('word-filters').innerHTML=['all',...categories].map(c=>`<button data-word-category="${esc(c)}" class="${c==='all'?'selected':''}" aria-pressed="${c==='all'}">${esc(c==='all'?'Tous':c)}</button>`).join('');
  document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>showView(b.dataset.view));
