@@ -19,6 +19,8 @@
 @media(max-width:660px){.qcm-choices{grid-template-columns:1fr;gap:9px}.qcm-choice{min-height:54px;font-size:14px;padding:11px 12px}.qcm-banner{align-items:flex-start;flex-direction:column;gap:3px;padding:11px 14px}.mode-options button{font-size:13px}.word-number{padding-left:10px;padding-right:10px}}
 @media(max-width:660px){.settings-toggle{display:block}.settings-panel .panel-heading{margin:0}.settings-content{display:block;grid-column:1/-1;margin-top:18px}.settings-content>.field-label{margin-top:0}.settings-content select{margin-bottom:13px}.settings-content fieldset{margin-bottom:17px}}
 
+#list-settings{grid-column:1/-1}
+
 </style>
   
   
@@ -27,13 +29,14 @@
 <body>
   <header class="header"><a class="brand" href="#revision"><span class="brand-mark" aria-hidden="true">E<span>.</span></span><span>english<span class="brand-light">lab</span></span></a><span class="header-note">MON VOCABULAIRE</span><button class="icon-button" id="help-button" aria-label="Aide et sources">?</button></header>
   <main class="shell">
-    <div class="page-heading"><div><p class="eyebrow">L’ANGLAIS, À TON RYTHME</p><h1>Un mot après l’autre<span>.</span></h1></div><div class="total-pill"><span id="total-words">—</span> entrées à réviser</div></div>
+    <div class="page-heading"><div><p class="eyebrow" id="active-list-name">Mon vocabulaire</p><h1>Un mot après l’autre<span>.</span></h1></div><div class="total-pill"><span id="total-words">—</span> entrées à réviser</div></div>
     <nav class="main-tabs" aria-label="Navigation"><button class="active" data-view="revision" aria-current="page">Réviser</button><button data-view="words">Mes mots <span id="word-count"></span></button><button data-view="progress">Progression</button></nav>
     <section id="revision-view" class="view">
       <div class="workspace">
         <aside class="settings-panel">
           <div class="panel-heading"><span class="step-dot">01</span><h2>Ta session</h2><button class="text-button settings-toggle" id="settings-toggle" aria-controls="settings-fields" aria-expanded="true">Réglages</button></div>
           <div class="settings-content" id="settings-fields">
+          <div id="list-settings"><label class="field-label" for="vocabulary-list">Liste à réviser</label><select id="vocabulary-list"><option value="original">Mon vocabulaire · 119</option><option value="work">Fiche Work Experience · 60</option><option value="adjectives">Adjectifs · 16</option></select></div>
           <fieldset><legend>Sens de traduction</legend><div class="direction-options"><button data-direction="mix" class="selected" aria-pressed="true">Les deux sens <span>Anglais et français</span></button><button data-direction="en-fr" aria-pressed="false">Anglais / Français</button><button data-direction="fr-en" aria-pressed="false">Français / Anglais</button></div></fieldset>
           <fieldset><legend>Comment réviser ?</legend><div class="mode-options"><button data-mode="typing" class="selected" aria-pressed="true">Saisie</button><button data-mode="qcm" aria-pressed="false">QCM</button><button data-mode="flash" aria-pressed="false">Cartes</button><button data-mode="test" aria-pressed="false">Test</button></div></fieldset>
           <div id="scope-settings"><label class="field-label" for="scope">Mots à travailler</label><select id="scope"><option value="series" selected>Séries de 10 mots</option><option value="adaptive" data-general-scope>Révision adaptée</option><option value="all" data-general-scope>Toute la liste</option><option value="mistakes">Mes erreurs · toutes les séries</option></select></div>
@@ -74,7 +77,7 @@
     <section id="progress-view" class="view" hidden><div class="section-top"><div><h2>Ce que tu retiens</h2><p>Chaque mot a une progression distincte dans chaque sens.</p></div><button id="export-progress" class="secondary-button">Exporter mes progrès</button></div><div id="progress-summary" class="progress-summary"></div><div class="progress-grid"><article class="white-panel"><h3>Par thème</h3><div id="category-progress"></div></article><article class="white-panel"><h3>À retravailler</h3><p class="muted" id="difficult-note">Les erreurs des derniers bilans de toutes les séries.</p><div id="difficult-words"></div></article></div><div class="data-actions"><label class="secondary-button import-button">Importer mes progrès<input type="file" id="import-progress" accept="application/json,.json" hidden></label><button class="text-button" id="reset-progress">Effacer ma progression</button><p id="storage-message" role="status"></p></div></section>
     <footer class="footer"><span>English Lab · Ton espace de révision</span><button id="sources-button" class="text-button">Méthode & sources</button></footer>
   </main>
-  <dialog id="help-dialog"><div class="dialog-header"><h2>Méthode & sources</h2><button id="close-help" class="icon-button" aria-label="Fermer">×</button></div><div class="dialog-content"><h3>Comment utiliser le site</h3><p><strong>QCM :</strong> Des séries de 10 entrées dans l’ordre de « Mes mots » : 1–10, 11–20, et ainsi de suite. La dernière série contient les entrées restantes. Choisis parmi quatre traductions, consulte la correction et passe à la question suivante. Le bouton « Série suivante » apparaît au bilan. « Nouvelle session » efface les scores enregistrés dans tous les modes et sens, ouvre la série suivante et revient à la première après la dernière ; « Refaire cette série » recommence la série choisie. Chaque série fonctionne en anglais–français, français–anglais ou dans les deux sens (une question par entrée). Le score de ton dernier bilan par série, mode et sens est affiché dans le sélecteur. Le QCM ne fait pas monter le niveau des révisions espacées.</p><p><strong>Saisie :</strong> écris toi-même la traduction avant de vérifier. Choisis « Séries de 10 mots » pour les mêmes groupes qu’en QCM : 1–10, 11–20, et ainsi de suite. Chaque série contient dix questions, sauf la dernière si moins de dix entrées restent ; les erreurs sont reprises dans le bilan et le bouton « Série suivante » permet de continuer. Les modes Cartes et Test peuvent aussi utiliser ces séries. Un indice ou une réponse révélée ne fait pas progresser le mot. En Saisie, les options « Révision adaptée » et « Toute la liste » reproposent les erreurs après d’autres questions.</p><p><strong>Mes erreurs · toutes les séries :</strong> choisis le mode et le sens de traduction, puis cette option dans « Mots à travailler ». Les erreurs du dernier bilan de chaque série sont rassemblées : 8/10 dans une série et 7/10 dans une autre donnent 5 entrées à revoir. La série sélectionnée ne limite pas cette liste. Une réponse avec indice compte comme une entrée à revoir. Les modes et les sens restent séparés. Le détail est conservé pour les prochains bilans ; les anciens scores sans détail nécessitent de refaire la série. « Nouvelle session » efface aussi ces bilans d’erreurs.</p><p><strong>Cartes :</strong> dis ou écris la réponse avant de retourner la carte, puis indique si tu la connaissais.</p><p><strong>Test :</strong> réponds sans indice. Toutes les corrections arrivent à la fin. Le test ne modifie pas les intervalles de révision.</p><h3>Des révisions espacées</h3><p>Après une réponse correcte sans aide : révision prévue dans 1, 3, 7, 14 puis 30 jours. Un mot est « stabilisé » après trois validations espacées dans chaque sens. Une erreur ramène le prochain passage à 10 minutes. Ce calendrier est une règle de ce site, pas une garantie de mémorisation.</p><h3>Ton vocabulaire</h3><p><strong>Une entrée par traduction à réviser.</strong> Les entrées qui partagent la même traduction en contexte sont regroupées : par exemple « oversee / supervise » ou « strong / solid ». Une seule question est posée pour chaque groupe et les variantes anglaises sont acceptées en réponse. Les formes verbales au passé restent séparées de l’infinitif. Le total affiché correspond aux entrées à réviser après regroupement ; les variantes et les deux sens de traduction ne doublent pas ce total.</p><p>Les entrées proviennent de <strong>Fiche de vocabulaire.pdf</strong> et des deux captures du 5 octobre 2026. Les traductions déjà indiquées dans la fiche sont conservées. Les traductions manquantes sont complétées avec Cambridge Dictionary ou Collins ; les liens figurent dans « Mes mots ».</p><p>Certains mots ont plusieurs sens. Ici, les traductions correspondent au contexte professionnel des documents. Les verbes de la deuxième capture restent au passé. Les synonymes présents dans la liste sont acceptés lorsqu’ils traduisent le même libellé français.</p><h3>Tes données</h3><p>La progression reste dans ce navigateur, sur cet appareil. Exporte-la pour la conserver ou la transférer. Si la sauvegarde locale n’est pas disponible, un message te l’indique. Aucun compte n’est nécessaire.</p><p>L’écoute utilise les voix anglaises de ton navigateur. Sa disponibilité dépend de ton appareil.</p></div></dialog>
+  <dialog id="help-dialog"><div class="dialog-header"><h2>Méthode & sources</h2><button id="close-help" class="icon-button" aria-label="Fermer">×</button></div><div class="dialog-content"><h3>Comment utiliser le site</h3><p><strong>QCM :</strong> Des séries de 10 entrées dans l’ordre de « Mes mots » : 1–10, 11–20, et ainsi de suite. La dernière série contient les entrées restantes. Choisis parmi quatre traductions, consulte la correction et passe à la question suivante. Le bouton « Série suivante » apparaît au bilan. « Nouvelle session » efface les scores enregistrés dans tous les modes et sens, ouvre la série suivante et revient à la première après la dernière ; « Refaire cette série » recommence la série choisie. Chaque série fonctionne en anglais–français, français–anglais ou dans les deux sens (une question par entrée). Le score de ton dernier bilan par série, mode et sens est affiché dans le sélecteur. Le QCM ne fait pas monter le niveau des révisions espacées.</p><p><strong>Saisie :</strong> écris toi-même la traduction avant de vérifier. Choisis « Séries de 10 mots » pour les mêmes groupes qu’en QCM : 1–10, 11–20, et ainsi de suite. Chaque série contient dix questions, sauf la dernière si moins de dix entrées restent ; les erreurs sont reprises dans le bilan et le bouton « Série suivante » permet de continuer. Les modes Cartes et Test peuvent aussi utiliser ces séries. Un indice ou une réponse révélée ne fait pas progresser le mot. En Saisie, les options « Révision adaptée » et « Toute la liste » reproposent les erreurs après d’autres questions.</p><p><strong>Mes erreurs · toutes les séries :</strong> choisis le mode et le sens de traduction, puis cette option dans « Mots à travailler ». Les erreurs du dernier bilan de chaque série sont rassemblées : 8/10 dans une série et 7/10 dans une autre donnent 5 entrées à revoir. La série sélectionnée ne limite pas cette liste. Une réponse avec indice compte comme une entrée à revoir. Les modes et les sens restent séparés. Le détail est conservé pour les prochains bilans ; les anciens scores sans détail nécessitent de refaire la série. « Nouvelle session » efface aussi ces bilans d’erreurs.</p><p><strong>Cartes :</strong> dis ou écris la réponse avant de retourner la carte, puis indique si tu la connaissais.</p><p><strong>Test :</strong> réponds sans indice. Toutes les corrections arrivent à la fin. Le test ne modifie pas les intervalles de révision.</p><h3>Des révisions espacées</h3><p>Après une réponse correcte sans aide : révision prévue dans 1, 3, 7, 14 puis 30 jours. Un mot est « stabilisé » après trois validations espacées dans chaque sens. Une erreur ramène le prochain passage à 10 minutes. Ce calendrier est une règle de ce site, pas une garantie de mémorisation.</p><h3>Tes listes de vocabulaire</h3><p>Choisis « Liste à réviser » : ton vocabulaire habituel, uniquement la fiche Work Experience (60 entrées en six groupes A à F), ou uniquement les 16 adjectifs du tableau Adjectives in Job Interviews (une série de 10, puis 6). Tous les modes et les deux sens fonctionnent dans chaque liste. Les scores et les erreurs de chaque liste sont séparés ; changer de liste conserve les bilans. Les adjectifs déjà présents conservent leur progression de mémorisation.</p><p><strong>Une entrée par traduction à réviser.</strong> Les entrées qui partagent la même traduction en contexte sont regroupées : par exemple « oversee / supervise » ou « strong / solid ». Une seule question est posée pour chaque groupe et les variantes anglaises sont acceptées en réponse. Les formes verbales au passé restent séparées de l’infinitif. Le total affiché correspond aux entrées à réviser après regroupement ; les variantes et les deux sens de traduction ne doublent pas ce total.</p><p>Les entrées proviennent de <strong>Fiche de vocabulaire.pdf</strong> et des deux captures du 5 octobre 2026. Les traductions déjà indiquées dans la fiche sont conservées. Les traductions manquantes sont complétées avec Cambridge Dictionary ou Collins ; les liens figurent dans « Mes mots ».</p><p>Certains mots ont plusieurs sens. Ici, les traductions correspondent au contexte professionnel des documents. Les verbes de la deuxième capture restent au passé. Les synonymes présents dans la liste sont acceptés lorsqu’ils traduisent le même libellé français.</p><h3>Tes données</h3><p>La progression reste dans ce navigateur, sur cet appareil. Exporte-la pour la conserver ou la transférer. Si la sauvegarde locale n’est pas disponible, un message te l’indique. Aucun compte n’est nécessaire.</p><p>L’écoute utilise les voix anglaises de ton navigateur. Sa disponibilité dépend de ton appareil.</p></div></dialog>
   <noscript>Active JavaScript dans ton navigateur pour utiliser les exercices de révision.</noscript>
   <div id="toast" class="toast" role="status" hidden></div>
 <script>
@@ -1916,6 +1919,862 @@ window.VOCABULARY = [
   }
 ];
 
+window.WORK_VOCABULARY = [
+  {
+    "id": "work-a-01",
+    "en": [
+      "site"
+    ],
+    "fr": [
+      "chantier"
+    ],
+    "category": "Work Experience · A",
+    "source": "Photo Work Experience",
+    "sheetGroup": "A",
+    "sheetNumber": 1
+  },
+  {
+    "id": "work-a-02",
+    "en": [
+      "to increase productivity"
+    ],
+    "fr": [
+      "augmenter la productivité"
+    ],
+    "category": "Work Experience · A",
+    "source": "Photo Work Experience",
+    "sheetGroup": "A",
+    "sheetNumber": 2
+  },
+  {
+    "id": "work-a-03",
+    "en": [
+      "assembly line"
+    ],
+    "fr": [
+      "chaîne de montage"
+    ],
+    "category": "Work Experience · A",
+    "source": "Photo Work Experience",
+    "sheetGroup": "A",
+    "sheetNumber": 3
+  },
+  {
+    "id": "work-a-04",
+    "en": [
+      "profits",
+      "earnings"
+    ],
+    "fr": [
+      "bénéfices",
+      "profits"
+    ],
+    "category": "Work Experience · A",
+    "source": "Photo Work Experience",
+    "sheetGroup": "A",
+    "sheetNumber": 4
+  },
+  {
+    "id": "work-a-05",
+    "en": [
+      "to manage a team"
+    ],
+    "fr": [
+      "animer une équipe",
+      "gérer une équipe",
+      "diriger une équipe"
+    ],
+    "category": "Work Experience · A",
+    "source": "Photo Work Experience",
+    "sheetGroup": "A",
+    "sheetNumber": 5
+  },
+  {
+    "id": "work-a-06",
+    "en": [
+      "to analyse",
+      "to analyze"
+    ],
+    "fr": [
+      "analyser"
+    ],
+    "category": "Work Experience · A",
+    "source": "Photo Work Experience",
+    "sheetGroup": "A",
+    "sheetNumber": 6
+  },
+  {
+    "id": "work-a-07",
+    "en": [
+      "requirement",
+      "need"
+    ],
+    "fr": [
+      "besoin",
+      "exigence"
+    ],
+    "category": "Work Experience · A",
+    "source": "Photo Work Experience",
+    "sheetGroup": "A",
+    "sheetNumber": 7
+  },
+  {
+    "id": "work-a-08",
+    "en": [
+      "responsible for"
+    ],
+    "fr": [
+      "chargé de",
+      "chargée de",
+      "responsable de"
+    ],
+    "category": "Work Experience · A",
+    "source": "Photo Work Experience",
+    "sheetGroup": "A",
+    "sheetNumber": 8
+  },
+  {
+    "id": "work-a-09",
+    "en": [
+      "turnover"
+    ],
+    "fr": [
+      "chiffre d’affaires"
+    ],
+    "category": "Work Experience · A",
+    "source": "Photo Work Experience",
+    "sheetGroup": "A",
+    "sheetNumber": 9,
+    "context": "Contexte : activité commerciale."
+  },
+  {
+    "id": "work-a-10",
+    "en": [
+      "to perform a task"
+    ],
+    "fr": [
+      "accomplir une tâche",
+      "réaliser une tâche",
+      "effectuer une tâche"
+    ],
+    "category": "Work Experience · A",
+    "source": "Photo Work Experience",
+    "sheetGroup": "A",
+    "sheetNumber": 10
+  },
+  {
+    "id": "work-b-01",
+    "en": [
+      "customer"
+    ],
+    "fr": [
+      "client",
+      "cliente"
+    ],
+    "category": "Work Experience · B",
+    "source": "Photo Work Experience",
+    "sheetGroup": "B",
+    "sheetNumber": 1
+  },
+  {
+    "id": "work-b-02",
+    "en": [
+      "sales figures"
+    ],
+    "fr": [
+      "chiffre des ventes",
+      "chiffres des ventes"
+    ],
+    "category": "Work Experience · B",
+    "source": "Photo Work Experience",
+    "sheetGroup": "B",
+    "sheetNumber": 2
+  },
+  {
+    "id": "work-b-03",
+    "en": [
+      "to market"
+    ],
+    "fr": [
+      "commercialiser"
+    ],
+    "category": "Work Experience · B",
+    "source": "Photo Work Experience",
+    "sheetGroup": "B",
+    "sheetNumber": 3
+  },
+  {
+    "id": "work-b-04",
+    "en": [
+      "order"
+    ],
+    "fr": [
+      "commande"
+    ],
+    "category": "Work Experience · B",
+    "source": "Photo Work Experience",
+    "sheetGroup": "B",
+    "sheetNumber": 4
+  },
+  {
+    "id": "work-b-05",
+    "en": [
+      "packaging"
+    ],
+    "fr": [
+      "conditionnement",
+      "emballage"
+    ],
+    "category": "Work Experience · B",
+    "source": "Photo Work Experience",
+    "sheetGroup": "B",
+    "sheetNumber": 5
+  },
+  {
+    "id": "work-b-06",
+    "en": [
+      "minutes"
+    ],
+    "fr": [
+      "compte-rendu",
+      "compte rendu",
+      "compte rendu de réunion",
+      "procès-verbal de réunion"
+    ],
+    "category": "Work Experience · B",
+    "source": "Photo Work Experience",
+    "sheetGroup": "B",
+    "sheetNumber": 6,
+    "context": "Contexte : réunion."
+  },
+  {
+    "id": "work-b-07",
+    "en": [
+      "devote time to",
+      "to devote time to"
+    ],
+    "fr": [
+      "consacrer du temps à"
+    ],
+    "category": "Work Experience · B",
+    "source": "Photo Work Experience",
+    "sheetGroup": "B",
+    "sheetNumber": 7
+  },
+  {
+    "id": "work-b-08",
+    "en": [
+      "to design"
+    ],
+    "fr": [
+      "concevoir"
+    ],
+    "category": "Work Experience · B",
+    "source": "Photo Work Experience",
+    "sheetGroup": "B",
+    "sheetNumber": 8
+  },
+  {
+    "id": "work-b-09",
+    "en": [
+      "to counsel"
+    ],
+    "fr": [
+      "conseiller"
+    ],
+    "category": "Work Experience · B",
+    "source": "Photo Work Experience",
+    "sheetGroup": "B",
+    "sheetNumber": 9
+  },
+  {
+    "id": "work-b-10",
+    "en": [
+      "competitor"
+    ],
+    "fr": [
+      "concurrent",
+      "concurrente"
+    ],
+    "category": "Work Experience · B",
+    "source": "Photo Work Experience",
+    "sheetGroup": "B",
+    "sheetNumber": 10
+  },
+  {
+    "id": "work-c-01",
+    "en": [
+      "demo"
+    ],
+    "fr": [
+      "démonstration"
+    ],
+    "category": "Work Experience · C",
+    "source": "Photo Work Experience",
+    "sheetGroup": "C",
+    "sheetNumber": 1
+  },
+  {
+    "id": "work-c-02",
+    "en": [
+      "to monitor",
+      "to control"
+    ],
+    "fr": [
+      "contrôler",
+      "surveiller"
+    ],
+    "category": "Work Experience · C",
+    "source": "Photo Work Experience",
+    "sheetGroup": "C",
+    "sheetNumber": 2
+  },
+  {
+    "id": "work-c-03",
+    "en": [
+      "spending"
+    ],
+    "fr": [
+      "dépense",
+      "dépenses"
+    ],
+    "category": "Work Experience · C",
+    "source": "Photo Work Experience",
+    "sheetGroup": "C",
+    "sheetNumber": 3
+  },
+  {
+    "id": "work-c-04",
+    "en": [
+      "to manage a department"
+    ],
+    "fr": [
+      "diriger un service",
+      "gérer un service",
+      "diriger un département"
+    ],
+    "category": "Work Experience · C",
+    "source": "Photo Work Experience",
+    "sheetGroup": "C",
+    "sheetNumber": 4
+  },
+  {
+    "id": "work-c-05",
+    "en": [
+      "to develop new markets"
+    ],
+    "fr": [
+      "développer de nouveaux marchés"
+    ],
+    "category": "Work Experience · C",
+    "source": "Photo Work Experience",
+    "sheetGroup": "C",
+    "sheetNumber": 5
+  },
+  {
+    "id": "work-c-06",
+    "en": [
+      "file"
+    ],
+    "fr": [
+      "dossier"
+    ],
+    "category": "Work Experience · C",
+    "source": "Photo Work Experience",
+    "sheetGroup": "C",
+    "sheetNumber": 6
+  },
+  {
+    "id": "work-c-07",
+    "en": [
+      "to reduce expenses"
+    ],
+    "fr": [
+      "diminuer les charges",
+      "réduire les dépenses",
+      "réduire les charges"
+    ],
+    "category": "Work Experience · C",
+    "source": "Photo Work Experience",
+    "sheetGroup": "C",
+    "sheetNumber": 7
+  },
+  {
+    "id": "work-c-08",
+    "en": [
+      "to motivate a team"
+    ],
+    "fr": [
+      "motiver une équipe"
+    ],
+    "category": "Work Experience · C",
+    "source": "Photo Work Experience",
+    "sheetGroup": "C",
+    "sheetNumber": 8,
+    "url": "https://dictionary.cambridge.org/dictionary/english-french/motivate",
+    "dictionary": "Cambridge",
+    "note": "Traduction corrigée : motivate a team signifie motiver une équipe. La colonne française de la fiche comporte une incohérence."
+  },
+  {
+    "id": "work-c-09",
+    "en": [
+      "sample"
+    ],
+    "fr": [
+      "échantillon",
+      "un échantillon"
+    ],
+    "category": "Work Experience · C",
+    "source": "Photo Work Experience",
+    "sheetGroup": "C",
+    "sheetNumber": 9,
+    "url": "https://dictionary.cambridge.org/dictionary/english-french/sample",
+    "dictionary": "Cambridge",
+    "note": "Traduction corrigée : sample signifie échantillon. La colonne française de la fiche comporte une incohérence."
+  },
+  {
+    "id": "work-c-10",
+    "en": [
+      "estimate",
+      "quote"
+    ],
+    "fr": [
+      "devis"
+    ],
+    "category": "Work Experience · C",
+    "source": "Photo Work Experience",
+    "sheetGroup": "C",
+    "sheetNumber": 10
+  },
+  {
+    "id": "work-d-01",
+    "en": [
+      "to save"
+    ],
+    "fr": [
+      "économiser"
+    ],
+    "category": "Work Experience · D",
+    "source": "Photo Work Experience",
+    "sheetGroup": "D",
+    "sheetNumber": 1
+  },
+  {
+    "id": "work-d-02",
+    "en": [
+      "private-sector company",
+      "private sector company"
+    ],
+    "fr": [
+      "entreprise du secteur privé",
+      "entreprise privée"
+    ],
+    "category": "Work Experience · D",
+    "source": "Photo Work Experience",
+    "sheetGroup": "D",
+    "sheetNumber": 2
+  },
+  {
+    "id": "work-d-03",
+    "en": [
+      "state-owned company",
+      "state owned company"
+    ],
+    "fr": [
+      "entreprise du secteur public",
+      "entreprise publique"
+    ],
+    "category": "Work Experience · D",
+    "source": "Photo Work Experience",
+    "sheetGroup": "D",
+    "sheetNumber": 3
+  },
+  {
+    "id": "work-d-04",
+    "en": [
+      "to increase sales by",
+      "to increase sales (by)"
+    ],
+    "fr": [
+      "faire progresser les ventes de",
+      "augmenter les ventes de"
+    ],
+    "category": "Work Experience · D",
+    "source": "Photo Work Experience",
+    "sheetGroup": "D",
+    "sheetNumber": 4
+  },
+  {
+    "id": "work-d-05",
+    "en": [
+      "to evaluate",
+      "to assess"
+    ],
+    "fr": [
+      "évaluer"
+    ],
+    "category": "Work Experience · D",
+    "source": "Photo Work Experience",
+    "sheetGroup": "D",
+    "sheetNumber": 5
+  },
+  {
+    "id": "work-d-06",
+    "en": [
+      "sales force"
+    ],
+    "fr": [
+      "force de vente"
+    ],
+    "category": "Work Experience · D",
+    "source": "Photo Work Experience",
+    "sheetGroup": "D",
+    "sheetNumber": 6
+  },
+  {
+    "id": "work-d-07",
+    "en": [
+      "subsidiary"
+    ],
+    "fr": [
+      "filiale"
+    ],
+    "category": "Work Experience · D",
+    "source": "Photo Work Experience",
+    "sheetGroup": "D",
+    "sheetNumber": 7
+  },
+  {
+    "id": "work-d-08",
+    "en": [
+      "to supervise a team"
+    ],
+    "fr": [
+      "encadrer une équipe",
+      "superviser une équipe"
+    ],
+    "category": "Work Experience · D",
+    "source": "Photo Work Experience",
+    "sheetGroup": "D",
+    "sheetNumber": 8
+  },
+  {
+    "id": "work-d-09",
+    "en": [
+      "to supply (someone with something)",
+      "to supply someone with something",
+      "to supply somebody with something",
+      "to supply"
+    ],
+    "fr": [
+      "fournir",
+      "fournir quelque chose à quelqu’un"
+    ],
+    "category": "Work Experience · D",
+    "source": "Photo Work Experience",
+    "sheetGroup": "D",
+    "sheetNumber": 9
+  },
+  {
+    "id": "work-d-10",
+    "en": [
+      "market survey"
+    ],
+    "fr": [
+      "étude de marché"
+    ],
+    "category": "Work Experience · D",
+    "source": "Photo Work Experience",
+    "sheetGroup": "D",
+    "sheetNumber": 10
+  },
+  {
+    "id": "work-e-01",
+    "en": [
+      "supplier"
+    ],
+    "fr": [
+      "fournisseur",
+      "fournisseuse"
+    ],
+    "category": "Work Experience · E",
+    "source": "Photo Work Experience",
+    "sheetGroup": "E",
+    "sheetNumber": 1
+  },
+  {
+    "id": "work-e-02",
+    "en": [
+      "to launch (a product)",
+      "to launch a product",
+      "to launch"
+    ],
+    "fr": [
+      "lancer un produit",
+      "lancer"
+    ],
+    "category": "Work Experience · E",
+    "source": "Photo Work Experience",
+    "sheetGroup": "E",
+    "sheetNumber": 2
+  },
+  {
+    "id": "work-e-03",
+    "en": [
+      "delivery"
+    ],
+    "fr": [
+      "livraison"
+    ],
+    "category": "Work Experience · E",
+    "source": "Photo Work Experience",
+    "sheetGroup": "E",
+    "sheetNumber": 3
+  },
+  {
+    "id": "work-e-04",
+    "en": [
+      "to provide (something to someone)",
+      "to provide something to someone",
+      "to provide something to somebody",
+      "to provide"
+    ],
+    "fr": [
+      "fournir",
+      "fournir quelque chose à quelqu’un"
+    ],
+    "category": "Work Experience · E",
+    "source": "Photo Work Experience",
+    "sheetGroup": "E",
+    "sheetNumber": 4
+  },
+  {
+    "id": "work-e-05",
+    "en": [
+      "to update"
+    ],
+    "fr": [
+      "moderniser",
+      "mettre à jour"
+    ],
+    "category": "Work Experience · E",
+    "source": "Photo Work Experience",
+    "sheetGroup": "E",
+    "sheetNumber": 5
+  },
+  {
+    "id": "work-e-06",
+    "en": [
+      "to implement"
+    ],
+    "fr": [
+      "mettre en œuvre",
+      "mettre en oeuvre",
+      "mettre en place"
+    ],
+    "category": "Work Experience · E",
+    "source": "Photo Work Experience",
+    "sheetGroup": "E",
+    "sheetNumber": 6
+  },
+  {
+    "id": "work-e-07",
+    "en": [
+      "to negotiate"
+    ],
+    "fr": [
+      "négocier"
+    ],
+    "category": "Work Experience · E",
+    "source": "Photo Work Experience",
+    "sheetGroup": "E",
+    "sheetNumber": 7
+  },
+  {
+    "id": "work-e-08",
+    "en": [
+      "to manage"
+    ],
+    "fr": [
+      "gérer"
+    ],
+    "category": "Work Experience · E",
+    "source": "Photo Work Experience",
+    "sheetGroup": "E",
+    "sheetNumber": 8
+  },
+  {
+    "id": "work-e-09",
+    "en": [
+      "to participate in"
+    ],
+    "fr": [
+      "participer à"
+    ],
+    "category": "Work Experience · E",
+    "source": "Photo Work Experience",
+    "sheetGroup": "E",
+    "sheetNumber": 9
+  },
+  {
+    "id": "work-e-10",
+    "en": [
+      "waste"
+    ],
+    "fr": [
+      "gaspillage"
+    ],
+    "category": "Work Experience · E",
+    "source": "Photo Work Experience",
+    "sheetGroup": "E",
+    "sheetNumber": 10
+  },
+  {
+    "id": "work-f-01",
+    "en": [
+      "losses"
+    ],
+    "fr": [
+      "pertes"
+    ],
+    "category": "Work Experience · F",
+    "source": "Photo Work Experience",
+    "sheetGroup": "F",
+    "sheetNumber": 1
+  },
+  {
+    "id": "work-f-02",
+    "en": [
+      "schedule"
+    ],
+    "fr": [
+      "planning",
+      "calendrier"
+    ],
+    "category": "Work Experience · F",
+    "source": "Photo Work Experience",
+    "sheetGroup": "F",
+    "sheetNumber": 2
+  },
+  {
+    "id": "work-f-03",
+    "en": [
+      "to plan"
+    ],
+    "fr": [
+      "planifier"
+    ],
+    "category": "Work Experience · F",
+    "source": "Photo Work Experience",
+    "sheetGroup": "F",
+    "sheetNumber": 3
+  },
+  {
+    "id": "work-f-04",
+    "en": [
+      "small and medium-sized companies",
+      "small and medium sized companies",
+      "SMEs"
+    ],
+    "fr": [
+      "PME",
+      "petites et moyennes entreprises"
+    ],
+    "category": "Work Experience · F",
+    "source": "Photo Work Experience",
+    "sheetGroup": "F",
+    "sheetNumber": 4
+  },
+  {
+    "id": "work-f-05",
+    "en": [
+      "position in"
+    ],
+    "fr": [
+      "poste dans le domaine de",
+      "poste dans"
+    ],
+    "category": "Work Experience · F",
+    "source": "Photo Work Experience",
+    "sheetGroup": "F",
+    "sheetNumber": 5
+  },
+  {
+    "id": "work-f-06",
+    "en": [
+      "position as"
+    ],
+    "fr": [
+      "poste de"
+    ],
+    "category": "Work Experience · F",
+    "source": "Photo Work Experience",
+    "sheetGroup": "F",
+    "sheetNumber": 6
+  },
+  {
+    "id": "work-f-07",
+    "en": [
+      "achievements"
+    ],
+    "fr": [
+      "réalisations",
+      "accomplissements"
+    ],
+    "category": "Work Experience · F",
+    "source": "Photo Work Experience",
+    "sheetGroup": "F",
+    "sheetNumber": 7
+  },
+  {
+    "id": "work-f-08",
+    "en": [
+      "to promote"
+    ],
+    "fr": [
+      "promouvoir"
+    ],
+    "category": "Work Experience · F",
+    "source": "Photo Work Experience",
+    "sheetGroup": "F",
+    "sheetNumber": 8
+  },
+  {
+    "id": "work-f-09",
+    "en": [
+      "cutback"
+    ],
+    "fr": [
+      "réduction"
+    ],
+    "category": "Work Experience · F",
+    "source": "Photo Work Experience",
+    "sheetGroup": "F",
+    "sheetNumber": 9
+  },
+  {
+    "id": "work-f-10",
+    "en": [
+      "to cut down",
+      "to decrease"
+    ],
+    "fr": [
+      "réduire",
+      "diminuer"
+    ],
+    "category": "Work Experience · F",
+    "source": "Photo Work Experience",
+    "sheetGroup": "F",
+    "sheetNumber": 10
+  }
+];
+
+window.VOCABULARY_LISTS = {
+  original: window.VOCABULARY,
+  work: window.WORK_VOCABULARY,
+  adjectives: ["cautious", "earnest", "easy-going", "demanding", "gregarious", "outspoken", "resourceful", "versatile", "sensible", "level-headed", "reliable", "strong-willed", "articulate", "tactful", "dedicated", "decisive"].map(id => window.VOCABULARY.find(word => word.id === id))
+};
+
 </script>
 <script>
 (function(root){
@@ -1934,7 +2793,7 @@ window.VOCABULARY = [
   function isSeriesMode(config){return config.scope==='series'||config.mode==='qcm'&&config.scope!=='mistakes';}
   function latestSeriesSession(history,words,config,index=config.series){
     const block=qcmSeries(words,index),ids=block.words.map(w=>w.id).join('|');
-    return history.filter(h=>h.mode===config.mode&&h.direction===config.direction&&h.completeSeries&&h.series===block.index&&h.total===block.words.length&&h.seriesIds===ids).reduce((latest,h)=>!latest||h.at>=latest.at?h:latest,null);
+    return history.filter(h=>(!config.list||(h.list||'original')===config.list)&&h.mode===config.mode&&h.direction===config.direction&&h.completeSeries&&h.series===block.index&&h.total===block.words.length&&h.seriesIds===ids).reduce((latest,h)=>!latest||h.at>=latest.at?h:latest,null);
   }
   function seriesMistakes(session,words){
     if(!session)return null;
@@ -1956,12 +2815,13 @@ window.VOCABULARY = [
     const mistakeKeys=[...new Set(keys)];
     return {allSeries:true,mode:config.mode,direction:config.direction,total:mistakeKeys.length,correct:0,seriesIds:mistakeKeys.map(key=>key.slice(0,key.lastIndexOf(':'))).join('|'),mistakeKeys,reviewedSeries,missingSeries};
   }
-  function retainHistory(history,words){
+  function retainHistory(history,words,collections={original:words}){
     const latest=new Map(),keep=new Set(history.slice(-100));
     for(const session of history){
       if(!session.completeSeries||!['typing','qcm','flash','test'].includes(session.mode)||!['mix','en-fr','fr-en'].includes(session.direction)||!Number.isInteger(session.series))continue;
-      const block=qcmSeries(words,session.series);if(session.series!==block.index||session.total!==block.words.length||session.seriesIds!==block.words.map(w=>w.id).join('|'))continue;
-      const key=session.mode+':'+session.direction+':'+session.series,previous=latest.get(key);
+      const list=session.list||'original';if(!Object.hasOwn(collections,list))continue;const pool=collections[list];
+      const block=qcmSeries(pool,session.series);if(session.series!==block.index||session.total!==block.words.length||session.seriesIds!==block.words.map(w=>w.id).join('|'))continue;
+      const key=(session.list||'original')+':'+session.mode+':'+session.direction+':'+session.series,previous=latest.get(key);
       if(!previous||session.at>=previous.at)latest.set(key,session);
     }
     for(const session of latest.values())keep.add(session);
@@ -1969,7 +2829,7 @@ window.VOCABULARY = [
   }
   function qcmChoices(word,direction,words,random=Math.random){const language=direction==='en-fr'?'fr':'en',target=direction==='en-fr'?word.fr[0]:word.en[0],correctAnswers=new Set(accepted(word,direction,words).map(a=>canonical(a,language))),seen=new Set([canonical(target,language)]);const candidates=shuffle(words.filter(w=>w.id!==word.id),random).sort((a,b)=>{const rank=w=>w.category===word.category?0:form(w)===form(word)?1:2;return rank(a)-rank(b);});const options=[target];for(const candidate of candidates){const text=direction==='en-fr'?candidate.fr[0]:candidate.en[0],key=canonical(text,language);if(seen.has(key)||accepted(candidate,direction,words).some(a=>correctAnswers.has(canonical(a,language))))continue;seen.add(key);options.push(text);if(options.length===4)break;}return shuffle(options,random);}
   function makeQueue(words,records,config,now=Date.now(),random=Math.random,history=[]){if(config.scope==='mistakes')return seriesMistakes(allSeriesMistakes(history,words,config),words)||[];if(isSeriesMode(config))return qcmSeries(words,config.series).words.map((word,i)=>{const direction=config.direction==='mix'?(i%2?'fr-en':'en-fr'):config.direction;return {id:word.id,direction,key:word.id+':'+direction};});const directions=config.direction==='mix'?['en-fr','fr-en']:[config.direction];let pool=words.filter(w=>config.category==='all'||w.category===config.category).flatMap(word=>directions.map(direction=>({id:word.id,direction,key:word.id+':'+direction})));if(config.mode!=='test'&&config.scope==='adaptive')pool=pool.filter(q=>!records[q.key]||records[q.key].due<=now);pool=shuffle(pool,random);if(config.scope==='adaptive'&&config.mode!=='test')pool.sort((a,b)=>{const ra=records[a.key],rb=records[b.key];return (ra?(ra.level===0?-2:-1):0)-(rb?(rb.level===0?-2:-1):0);});const size=config.size==='all'?pool.length:Number(config.size);return pool.slice(0,size);}
-  function validProgress(data,words){if(!data||data.version!==1||!data.records||typeof data.records!=='object'||Array.isArray(data.records))throw new Error('Ce fichier ne contient pas une progression English Lab valide.');const ids=new Map(words.flatMap(w=>[w.id,...(w.mergedIds||[])].map(id=>[id,w.id])));const records={};for(const [key,r] of Object.entries(data.records)){const separator=key.lastIndexOf(':'),id=ids.get(key.slice(0,separator)),direction=key.slice(separator+1);if(!id||!['en-fr','fr-en'].includes(direction))continue;if(!r||typeof r!=='object')throw new Error('Une fiche de progression est invalide.');const values=['level','correct','wrong','due','last','promotedAt'];if(values.some(k=>!Number.isFinite(r[k])||r[k]<0)||!Number.isInteger(r.level)||r.level>5||!Number.isInteger(r.correct)||!Number.isInteger(r.wrong))throw new Error('Une valeur de progression est invalide.');const destination=id+':'+direction,previous=records[destination],clean=Object.fromEntries(values.map(k=>[k,r[k]]));records[destination]=previous?{...(clean.last>=previous.last?clean:previous),correct:clean.correct+previous.correct,wrong:clean.wrong+previous.wrong}:clean;}return {version:1,records,history:Array.isArray(data.history)?retainHistory(data.history.filter(h=>h&&Number.isFinite(h.at)&&Number.isFinite(h.total)&&Number.isFinite(h.correct)&&h.total>=0&&h.correct>=0&&h.correct<=h.total),words):[]};}
+  function validProgress(data,words,collections={original:words}){if(!data||data.version!==1||!data.records||typeof data.records!=='object'||Array.isArray(data.records))throw new Error('Ce fichier ne contient pas une progression English Lab valide.');const ids=new Map(words.flatMap(w=>[w.id,...(w.mergedIds||[])].map(id=>[id,w.id])));const records={};for(const [key,r] of Object.entries(data.records)){const separator=key.lastIndexOf(':'),id=ids.get(key.slice(0,separator)),direction=key.slice(separator+1);if(!id||!['en-fr','fr-en'].includes(direction))continue;if(!r||typeof r!=='object')throw new Error('Une fiche de progression est invalide.');const values=['level','correct','wrong','due','last','promotedAt'];if(values.some(k=>!Number.isFinite(r[k])||r[k]<0)||!Number.isInteger(r.level)||r.level>5||!Number.isInteger(r.correct)||!Number.isInteger(r.wrong))throw new Error('Une valeur de progression est invalide.');const destination=id+':'+direction,previous=records[destination],clean=Object.fromEntries(values.map(k=>[k,r[k]]));records[destination]=previous?{...(clean.last>=previous.last?clean:previous),correct:clean.correct+previous.correct,wrong:clean.wrong+previous.wrong}:clean;}return {version:1,records,history:Array.isArray(data.history)?retainHistory(data.history.filter(h=>h&&Number.isFinite(h.at)&&Number.isFinite(h.total)&&Number.isFinite(h.correct)&&h.total>=0&&h.correct>=0&&h.correct<=h.total),words,collections):[]};}
   root.RevisionCore={DAY,normalize,canonical,accepted,grade,updateRecord,qcmSeries,isSeriesMode,latestSeriesSession,seriesMistakes,allSeriesMistakes,retainHistory,qcmChoices,makeQueue,validProgress};
 })(typeof window==='undefined'?globalThis:window);
 
@@ -1977,17 +2837,28 @@ window.VOCABULARY = [
 <script>
 (function(){
  'use strict';
- const C=window.RevisionCore, words=window.VOCABULARY, byId=new Map(words.map(w=>[w.id,w])), $=id=>document.getElementById(id);
+ const C=window.RevisionCore, lists=window.VOCABULARY_LISTS||{original:window.VOCABULARY},allWords=[...new Map(Object.values(lists).flat().map(w=>[w.id,w])).values()],$=id=>document.getElementById(id);
+ let words=lists.original,byId=new Map(words.map(w=>[w.id,w])),renderedList=null;
  const KEY='english-lab-progress-v1', PREF='english-lab-settings-v1';
- let data={version:1,records:{},history:[]}, config={direction:'mix',mode:'typing',category:'all',scope:'series',size:'10',series:0};
+ let data={version:1,records:{},history:[]}, config={list:'original',direction:'mix',mode:'typing',category:'all',scope:'series',size:'10',series:0};
  let queue=[],position=0,answered=false,hinted=false,results=[],retryCounts={},started=0,baseCount=0,activeView='revision',wordCategory='all',storageAvailable=true,toastTimer,qcmOptions=[],mistakesSource=null;
- const categories=[...new Set(words.map(w=>w.category))];
+ let categories=[...new Set(words.map(w=>w.category))];
  const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const plural=(n,single,more)=>`${n} ${n===1?single:more}`;
  function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,4500);}
  function save(){try{localStorage.setItem(KEY,JSON.stringify(data));}catch{storageAvailable=false;$('storage-message').textContent='Sauvegarde locale indisponible. Exporte tes progrès avant de fermer la page.';toast('Sauvegarde locale indisponible : exporte tes progrès.');}}
  function savePrefs(){try{localStorage.setItem(PREF,JSON.stringify(config));}catch{}}
- try{const raw=localStorage.getItem(KEY);if(raw)data=C.validProgress(JSON.parse(raw),words);const pref=JSON.parse(localStorage.getItem(PREF)||'null');if(pref&&['mix','en-fr','fr-en'].includes(pref.direction)&&['typing','qcm','flash','test'].includes(pref.mode)&&['all',...categories].includes(pref.category)&&['series','adaptive','all','mistakes'].includes(pref.scope)&&['10','20','40','all'].includes(String(pref.size)))config={...config,...pref};}catch{storageAvailable=false;$('storage-message').textContent='La sauvegarde locale n’a pas pu être lue. Tu peux utiliser le site et exporter tes progrès.';}
+ try{const raw=localStorage.getItem(KEY);if(raw)data=C.validProgress(JSON.parse(raw),allWords,lists);const pref=JSON.parse(localStorage.getItem(PREF)||'null');if(pref&&(!pref.list||Object.hasOwn(lists,pref.list))&&['mix','en-fr','fr-en'].includes(pref.direction)&&['typing','qcm','flash','test'].includes(pref.mode)&&(pref.category==='all'||(lists[pref.list||'original']).some(w=>w.category===pref.category))&&['series','adaptive','all','mistakes'].includes(pref.scope)&&['10','20','40','all'].includes(String(pref.size)))config={...config,...pref};}catch{storageAvailable=false;$('storage-message').textContent='La sauvegarde locale n’a pas pu être lue. Tu peux utiliser le site et exporter tes progrès.';}
+ function refreshList(){
+  $('vocabulary-list').value=config.list;$('active-list-name').textContent={original:'Mon vocabulaire',work:'Fiche Work Experience',adjectives:'Adjectifs'}[config.list];
+  if(renderedList===config.list)return;
+  renderedList=config.list;wordCategory='all';$('word-search').value='';
+  $('category').innerHTML=['all',...categories].map(category=>`<option value="${esc(category)}">${esc(category==='all'?'Tous les thèmes':category)}</option>`).join('');
+  $('word-filters').innerHTML=['all',...categories].map(c=>`<button data-word-category="${esc(c)}" class="${c==='all'?'selected':''}" aria-pressed="${c==='all'}">${esc(c==='all'?'Tous':c)}</button>`).join('');
+  document.querySelectorAll('[data-word-category]').forEach(b=>b.onclick=()=>{wordCategory=b.dataset.wordCategory;document.querySelectorAll('[data-word-category]').forEach(btn=>{const selected=btn===b;btn.classList.toggle('selected',selected);btn.setAttribute('aria-pressed',String(selected));});renderWords();});
+  $('total-words').textContent=words.length;$('word-count').textContent=words.length;
+  $('vocab-count-note').textContent=config.list==='work'?'60 entrées de la photo Work Experience, dans l’ordre des groupes A à F. Les deux incohérences de traduction sont signalées dans les entrées concernées.':config.list==='adjectives'?'Les 16 adjectifs du tableau « Adjectives in Job Interviews », dans l’ordre des lignes.':`${words.length} entrées : ${words.filter(w=>w.source==='Fiche PDF').length} de la fiche PDF, ${words.filter(w=>w.source==='Capture 20:46').length} adjectifs de personnalité et ${words.filter(w=>w.kind==='past').length} formes verbales au passé. ${words.reduce((n,w)=>n+(w.mergedIds?.length||0),0)} doublons regroupés ; les variantes anglaises restent acceptées.`;
+ }
  function current(){return queue[position];}
  function prompt(q){const w=byId.get(q.id);return q.direction==='en-fr'?w.en[0]:w.fr[0];}
  function target(q){const w=byId.get(q.id);return q.direction==='en-fr'?w.fr:w.en;}
@@ -2011,7 +2882,7 @@ window.VOCABULARY = [
   return submit(qcmOptions[index]);
  }
  function start(overrides={},source=null){
-  config={...config,...overrides};if(config.mode==='qcm'&&!['series','mistakes'].includes(config.scope))config.scope='series';config.series=C.qcmSeries(words,config.series).index;
+  config={...config,...overrides};if(!Object.hasOwn(lists,config.list))config.list='original';words=lists[config.list];byId=new Map(words.map(w=>[w.id,w]));categories=[...new Set(words.map(w=>w.category))];if(!['all',...categories].includes(config.category))config.category='all';refreshList();if(config.mode==='qcm'&&!['series','mistakes'].includes(config.scope))config.scope='series';config.series=C.qcmSeries(words,config.series).index;
   mistakesSource=config.scope==='mistakes'?(source||C.allSeriesMistakes(data.history,words,config)):null;
   renderPrefs();savePrefs();queue=config.scope==='mistakes'?(C.seriesMistakes(mistakesSource,words)||[]):C.makeQueue(words,data.records,config);position=0;answered=false;results=[];retryCounts={};started=Date.now();baseCount=queue.length;$('study-card').hidden=queue.length===0;$('session-end').hidden=queue.length>0;showView('revision');if(!queue.length)emptySession();else renderQuestion();renderStats();return state();
  }
@@ -2044,17 +2915,15 @@ window.VOCABULARY = [
  function next(){if(!answered)return;position++;renderQuestion();}
  function reveal(){if(!current()||config.mode!=='flash'||answered)return;const q=current(),w=byId.get(q.id);$('flash-actions').hidden=true;$('feedback').hidden=false;$('feedback').innerHTML=`<p class="feedback-answer">${esc(target(q).join(' · '))}</p>${w.note?`<p><small>${esc(w.note)}</small></p>`:''}`;$('rating-actions').hidden=false;$('skip').hidden=true;document.querySelector('[data-rating="1"]').focus({preventScroll:true});}
  function rate(correct){if(!current()||config.mode!=='flash'||$('rating-actions').hidden)return;const q=current();answered=true;results.push({q:{...q},answer:'Auto-évaluation',correct,hinted:false});record(q,correct);if(!correct&&!C.isSeriesMode(config)&&config.scope!=='mistakes')reinsert(q);position++;renderQuestion();}
- function finish(){const firstResults=results.filter(r=>!r.q.retry);const correct=firstResults.filter(r=>r.correct&&!r.hinted).length;const source={at:Date.now(),total:firstResults.length,correct,mode:config.mode,direction:config.direction,series:config.series,seriesIds:firstResults.map(r=>r.q.id).join('|'),mistakeKeys:firstResults.filter(r=>!r.correct||r.hinted).map(r=>r.q.key),completeSeries:C.isSeriesMode(config)&&firstResults.length===C.qcmSeries(words,config.series).words.length};data.history.push(source);data.history=C.retainHistory(data.history,words);save();renderQcmPrefs();$('study-card').hidden=true;$('session-end').hidden=false;const seconds=Math.max(1,Math.round((Date.now()-started)/1000)),minutes=Math.floor(seconds/60),time=minutes?`${minutes} min ${seconds%60} s`:`${seconds} s`;const mistakes=results.filter(r=>!r.correct||r.hinted);const uniqueMistakes=[...new Map(mistakes.map(r=>[r.q.key,r])).values()],reviewAll=C.isSeriesMode(config)||mistakesSource?.allSeries,overview=C.allSeriesMistakes(data.history,words,config),canReviewErrors=reviewAll?overview.total>0||overview.missingSeries.length>0:uniqueMistakes.length>0;$('session-end').innerHTML=`<span class="end-badge">SESSION TERMINÉE</span><div class="end-number">${correct}<span style="font-size:28px;color:var(--muted);letter-spacing:0"> / ${firstResults.length}</span></div><h2>${correct===firstResults.length?'Tout juste. Bien joué !':'Chaque passage compte.'}</h2><p>${esc(plural(firstResults.length,'question','questions'))} au premier passage · ${esc(time)}${results.length>baseCount?` · ${results.length-baseCount} rappels supplémentaires`:''}</p><p>${config.mode==='qcm'?'Une question par entrée. Tu peux refaire cette série ou continuer dans l’ordre.':config.mode==='flash'?'Score issu de tes auto-évaluations.':config.mode==='test'?'Le test est terminé. Consulte les corrections ci-dessous.':'Les réponses avec indice ne comptent pas dans ce score.'}</p><div class="end-actions">${C.isSeriesMode(config)&&config.series+1<C.qcmSeries(words).count?'<button id="next-series" class="primary-button">Série suivante →</button>':''}<button id="again" class="${C.isSeriesMode(config)?'secondary-button':'primary-button'}">${config.scope==='mistakes'?'Refaire ces erreurs':C.isSeriesMode(config)?'Refaire cette série':'Nouvelle session'}</button>${canReviewErrors?`<button id="redo-errors" class="secondary-button">${C.isSeriesMode(config)||mistakesSource?.allSeries?'Revoir toutes mes erreurs':'Revoir les erreurs de cette session'}</button>`:''}</div><div class="end-list">${(config.mode==='test'||C.isSeriesMode(config)||config.scope==='mistakes'?firstResults:uniqueMistakes).map(r=>`<details><summary>${r.correct&&!r.hinted?'✓':'○'} ${esc(prompt(r.q))} <small>(${r.q.direction==='en-fr'?'EN / FR':'FR / EN'})</small></summary><p>Ta réponse : ${esc(r.answer||'Sans réponse')}</p><p><strong>${esc(target(r.q).join(' · '))}</strong></p>${byId.get(r.q.id).note?`<p>${esc(byId.get(r.q.id).note)}</p>`:''}</details>`).join('')}</div>`;const reviewedSource=mistakesSource;$('again').onclick=()=>config.scope==='mistakes'?start({},reviewedSource):C.isSeriesMode(config)?start():newSession();if($('next-series'))$('next-series').onclick=()=>start({series:config.series+1});if($('redo-errors'))$('redo-errors').onclick=()=>start({scope:'mistakes'},C.isSeriesMode(config)||mistakesSource?.allSeries?null:source);updateStrip();$('session-bar').style.width='100%';document.querySelector('.progress-track').setAttribute('aria-valuenow','100');$('session-position').textContent=`${queue.length} / ${queue.length}`;renderStats();}
+ function finish(){const firstResults=results.filter(r=>!r.q.retry);const correct=firstResults.filter(r=>r.correct&&!r.hinted).length;const source={at:Date.now(),total:firstResults.length,correct,mode:config.mode,list:config.list,direction:config.direction,series:config.series,seriesIds:firstResults.map(r=>r.q.id).join('|'),mistakeKeys:firstResults.filter(r=>!r.correct||r.hinted).map(r=>r.q.key),completeSeries:C.isSeriesMode(config)&&firstResults.length===C.qcmSeries(words,config.series).words.length};data.history.push(source);data.history=C.retainHistory(data.history,allWords,lists);save();renderQcmPrefs();$('study-card').hidden=true;$('session-end').hidden=false;const seconds=Math.max(1,Math.round((Date.now()-started)/1000)),minutes=Math.floor(seconds/60),time=minutes?`${minutes} min ${seconds%60} s`:`${seconds} s`;const mistakes=results.filter(r=>!r.correct||r.hinted);const uniqueMistakes=[...new Map(mistakes.map(r=>[r.q.key,r])).values()],reviewAll=C.isSeriesMode(config)||mistakesSource?.allSeries,overview=C.allSeriesMistakes(data.history,words,config),canReviewErrors=reviewAll?overview.total>0||overview.missingSeries.length>0:uniqueMistakes.length>0;$('session-end').innerHTML=`<span class="end-badge">SESSION TERMINÉE</span><div class="end-number">${correct}<span style="font-size:28px;color:var(--muted);letter-spacing:0"> / ${firstResults.length}</span></div><h2>${correct===firstResults.length?'Tout juste. Bien joué !':'Chaque passage compte.'}</h2><p>${esc(plural(firstResults.length,'question','questions'))} au premier passage · ${esc(time)}${results.length>baseCount?` · ${results.length-baseCount} rappels supplémentaires`:''}</p><p>${config.mode==='qcm'?'Une question par entrée. Tu peux refaire cette série ou continuer dans l’ordre.':config.mode==='flash'?'Score issu de tes auto-évaluations.':config.mode==='test'?'Le test est terminé. Consulte les corrections ci-dessous.':'Les réponses avec indice ne comptent pas dans ce score.'}</p><div class="end-actions">${C.isSeriesMode(config)&&config.series+1<C.qcmSeries(words).count?'<button id="next-series" class="primary-button">Série suivante →</button>':''}<button id="again" class="${C.isSeriesMode(config)?'secondary-button':'primary-button'}">${config.scope==='mistakes'?'Refaire ces erreurs':C.isSeriesMode(config)?'Refaire cette série':'Nouvelle session'}</button>${canReviewErrors?`<button id="redo-errors" class="secondary-button">${C.isSeriesMode(config)||mistakesSource?.allSeries?'Revoir toutes mes erreurs':'Revoir les erreurs de cette session'}</button>`:''}</div><div class="end-list">${(config.mode==='test'||C.isSeriesMode(config)||config.scope==='mistakes'?firstResults:uniqueMistakes).map(r=>`<details><summary>${r.correct&&!r.hinted?'✓':'○'} ${esc(prompt(r.q))} <small>(${r.q.direction==='en-fr'?'EN / FR':'FR / EN'})</small></summary><p>Ta réponse : ${esc(r.answer||'Sans réponse')}</p><p><strong>${esc(target(r.q).join(' · '))}</strong></p>${byId.get(r.q.id).note?`<p>${esc(byId.get(r.q.id).note)}</p>`:''}</details>`).join('')}</div>`;const reviewedSource=mistakesSource;$('again').onclick=()=>config.scope==='mistakes'?start({},reviewedSource):C.isSeriesMode(config)?start():newSession();if($('next-series'))$('next-series').onclick=()=>start({series:config.series+1});if($('redo-errors'))$('redo-errors').onclick=()=>start({scope:'mistakes'},C.isSeriesMode(config)||mistakesSource?.allSeries?null:source);updateStrip();$('session-bar').style.width='100%';document.querySelector('.progress-track').setAttribute('aria-valuenow','100');$('session-position').textContent=`${queue.length} / ${queue.length}`;renderStats();}
  function renderStats(){const now=Date.now();let due=0,learning=0,mastered=0;for(const w of words){const rs=['en-fr','fr-en'].map(d=>data.records[w.id+':'+d]);if(rs.some(r=>!r||r.due<=now))due++;if(rs.every(r=>r&&r.level>=3))mastered++;else if(rs.some(r=>r&&(r.correct+r.wrong)>0))learning++;}$('due-count').textContent=due;$('learning-count').textContent=learning;$('mastered-count').textContent=mastered;return {due,learning,mastered};}
- function renderWords(){const search=C.normalize($('word-search').value);const list=words.filter(w=>(wordCategory==='all'||w.category===wordCategory)&&(!search||C.normalize([...w.en,...w.fr].join(' ')).includes(search)));$('words-result').textContent=plural(list.length,'entrée affichée','entrées affichées');$('word-rows').innerHTML=list.map(w=>`<tr><td class="word-number">${words.indexOf(w)+1}</td><td>${esc(w.en.join(' · '))}${w.context?`<small>${esc(w.context)}</small>`:''}${w.note?`<small>${esc(w.note)}</small>`:''}</td><td>${esc(w.fr.join(' · '))}</td><td>${esc(w.category)}</td><td>${esc(w.source)}${w.url?`<br><a href="${esc(w.url)}" target="_blank" rel="noopener noreferrer">${esc(w.dictionary||'Dictionnaire')}</a>`:''}</td></tr>`).join('')||'<tr><td colspan="5">Aucun mot ne correspond à ta recherche.</td></tr>';}
- function renderProgress(){const stats=renderStats(),records=Object.values(data.records),good=records.reduce((n,r)=>n+r.correct,0),bad=records.reduce((n,r)=>n+r.wrong,0),accuracy=good+bad?Math.round(good/(good+bad)*100):null;$('progress-summary').innerHTML=`<div><strong>${stats.mastered} / ${words.length}</strong><span>Mots stabilisés dans les deux sens</span></div><div><strong>${accuracy===null?'—':accuracy+' %'}</strong><span>Réussite en révision, sans aide</span></div><div><strong>${data.history.length}</strong><span>Sessions terminées</span></div>`;$('category-progress').innerHTML=categories.map(category=>{const list=words.filter(w=>w.category===category),stable=list.filter(w=>['en-fr','fr-en'].every(d=>(data.records[w.id+':'+d]?.level||0)>=3)).length;return `<div class="category-progress-row"><div><span>${esc(category)}</span><span>${stable} / ${list.length} stabilisés</span></div><div class="category-progress-track"><span style="width:${stable/list.length*100}%"></span></div></div>`;}).join('');const source=C.allSeriesMistakes(data.history,words,config),difficult=C.seriesMistakes(source,words),modes={typing:'Saisie',qcm:'QCM',flash:'Cartes',test:'Test'};$('difficult-note').textContent=`Toutes les séries · ${modes[config.mode]} · ${config.direction==='mix'?'les deux sens':config.direction==='en-fr'?'anglais → français':'français → anglais'}${source.missingSeries.length?` · anciens bilans sans détails : séries ${source.missingSeries.map(i=>i+1).join(', ')}`:''}`;$('difficult-words').innerHTML=difficult?.length?difficult.map(q=>{const w=byId.get(q.id);return `<div class="difficult-item"><span><strong>${esc(w.en[0])}</strong><br><small>${esc(w.fr[0])}</small></span><small>${q.direction==='en-fr'?'EN → FR':'FR → EN'}</small></div>`;}).join(''):`<p class="muted">${source.missingSeries.length?'Refais les séries signalées ci-dessus pour enregistrer leurs erreurs.':source.reviewedSeries?'Aucune erreur dans les derniers bilans de tes séries.':'Termine des séries dans ce mode et ce sens pour afficher leurs erreurs.'}</p>`;}
+ function renderWords(){const search=C.normalize($('word-search').value);const list=words.filter(w=>(wordCategory==='all'||w.category===wordCategory)&&(!search||C.normalize([...w.en,...w.fr].join(' ')).includes(search)));$('words-result').textContent=plural(list.length,'entrée affichée','entrées affichées');$('word-rows').innerHTML=list.map(w=>`<tr><td class="word-number">${words.indexOf(w)+1}</td><td>${esc(w.en.join(' · '))}${w.context?`<small>${esc(w.context)}</small>`:''}${w.note?`<small>${esc(w.note)}</small>`:''}</td><td>${esc(w.fr.join(' · '))}</td><td>${esc(w.category)}</td><td>${esc(config.list==='adjectives'?'Photo Adjectives in Job Interviews':w.source)}${w.url?`<br><a href="${esc(w.url)}" target="_blank" rel="noopener noreferrer">${esc(w.dictionary||'Dictionnaire')}</a>`:''}</td></tr>`).join('')||'<tr><td colspan="5">Aucun mot ne correspond à ta recherche.</td></tr>';}
+ function renderProgress(){const stats=renderStats(),records=Object.entries(data.records).filter(([key])=>byId.has(key.slice(0,key.lastIndexOf(':')))).map(([,r])=>r),good=records.reduce((n,r)=>n+r.correct,0),bad=records.reduce((n,r)=>n+r.wrong,0),accuracy=good+bad?Math.round(good/(good+bad)*100):null;$('progress-summary').innerHTML=`<div><strong>${stats.mastered} / ${words.length}</strong><span>Mots stabilisés dans les deux sens</span></div><div><strong>${accuracy===null?'—':accuracy+' %'}</strong><span>Réussite en révision, sans aide</span></div><div><strong>${data.history.filter(h=>(h.list||'original')===config.list).length}</strong><span>Sessions terminées</span></div>`;$('category-progress').innerHTML=categories.map(category=>{const list=words.filter(w=>w.category===category),stable=list.filter(w=>['en-fr','fr-en'].every(d=>(data.records[w.id+':'+d]?.level||0)>=3)).length;return `<div class="category-progress-row"><div><span>${esc(category)}</span><span>${stable} / ${list.length} stabilisés</span></div><div class="category-progress-track"><span style="width:${stable/list.length*100}%"></span></div></div>`;}).join('');const source=C.allSeriesMistakes(data.history,words,config),difficult=C.seriesMistakes(source,words),modes={typing:'Saisie',qcm:'QCM',flash:'Cartes',test:'Test'};$('difficult-note').textContent=`Toutes les séries · ${modes[config.mode]} · ${config.direction==='mix'?'les deux sens':config.direction==='en-fr'?'anglais → français':'français → anglais'}${source.missingSeries.length?` · anciens bilans sans détails : séries ${source.missingSeries.map(i=>i+1).join(', ')}`:''}`;$('difficult-words').innerHTML=difficult?.length?difficult.map(q=>{const w=byId.get(q.id);return `<div class="difficult-item"><span><strong>${esc(w.en[0])}</strong><br><small>${esc(w.fr[0])}</small></span><small>${q.direction==='en-fr'?'EN → FR':'FR → EN'}</small></div>`;}).join(''):`<p class="muted">${source.missingSeries.length?'Refais les séries signalées ci-dessus pour enregistrer leurs erreurs.':source.reviewedSeries?'Aucune erreur dans les derniers bilans de tes séries.':'Termine des séries dans ce mode et ce sens pour afficher leurs erreurs.'}</p>`;}
 
  function state(){const q=current();return {view:activeView,config:{...config},position,total:queue.length,answered,question:q&&position<queue.length?{word:prompt(q),direction:q.direction,category:byId.get(q.id).category,...(config.mode==='qcm'?{options:[...qcmOptions]}:{})}:null};}
- $('total-words').textContent=words.length;$('word-count').textContent=words.length;$('vocab-count-note').textContent=`${words.length} entrées : ${words.filter(w=>w.source==='Fiche PDF').length} de la fiche PDF, ${words.filter(w=>w.source==='Capture 20:46').length} adjectifs de personnalité et ${words.filter(w=>w.kind==='past').length} formes verbales au passé. Une entrée peut être un mot ou une expression. ${words.reduce((n,w)=>n+(w.mergedIds?.length||0),0)} doublons regroupés ; les variantes anglaises restent acceptées.`;
- for(const category of categories){const option=document.createElement('option');option.value=category;option.textContent=category;$('category').appendChild(option);}
- $('word-filters').innerHTML=['all',...categories].map(c=>`<button data-word-category="${esc(c)}" class="${c==='all'?'selected':''}" aria-pressed="${c==='all'}">${esc(c==='all'?'Tous':c)}</button>`).join('');
  document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>showView(b.dataset.view));
  for(const kind of ['direction','mode'])document.querySelectorAll(`[data-${kind}]`).forEach(b=>b.onclick=()=>start({[kind]:b.dataset[kind],...(kind==='mode'&&b.dataset.mode==='typing'&&config.scope!=='mistakes'?{scope:'series',size:'10'}:{})}));
+ $('vocabulary-list').onchange=()=>start({list:$('vocabulary-list').value,scope:'series',series:0,category:'all'});
  $('qcm-series').onchange=()=>start({series:Number($('qcm-series').value)});$('category').onchange=()=>start({category:$('category').value});$('scope').onchange=()=>start({scope:$('scope').value});$('session-size').onchange=()=>start({size:$('session-size').value});$('restart').onclick=newSession;
  $('answer-form').onsubmit=e=>{e.preventDefault();submit($('answer-input').value);};$('next').onclick=next;
  $('skip').onclick=()=>{if(config.mode==='flash'){reveal();if(!$('rating-actions').hidden)rate(false);}else submit('',true);};
@@ -2064,7 +2933,7 @@ window.VOCABULARY = [
  $('word-search').oninput=renderWords;document.querySelectorAll('[data-word-category]').forEach(b=>b.onclick=()=>{wordCategory=b.dataset.wordCategory;document.querySelectorAll('[data-word-category]').forEach(btn=>{const selected=btn===b;btn.classList.toggle('selected',selected);btn.setAttribute('aria-pressed',String(selected));});renderWords();});
  for(const id of ['help-button','sources-button'])$(id).onclick=()=>$('help-dialog').showModal();$('close-help').onclick=()=>$('help-dialog').close();$('help-dialog').onclick=e=>{if(e.target===$('help-dialog')){const r=$('help-dialog').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)$('help-dialog').close();}};
  $('export-progress').onclick=()=>{const blob=new Blob([JSON.stringify({...data,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='english-lab-progression.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
- $('import-progress').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>2000000)throw new Error('Ce fichier est trop volumineux.');const imported=C.validProgress(JSON.parse(await file.text()),words);if(!window.confirm('Remplacer ta progression actuelle par celle du fichier ?'))return;data=imported;save();renderProgress();toast('Progression importée.');}catch(error){toast(error.message||'Import impossible.');}finally{e.target.value='';}};
+ $('import-progress').onchange=async e=>{const file=e.target.files?.[0];if(!file)return;try{if(file.size>2000000)throw new Error('Ce fichier est trop volumineux.');const imported=C.validProgress(JSON.parse(await file.text()),allWords,lists);if(!window.confirm('Remplacer ta progression actuelle par celle du fichier ?'))return;data=imported;save();renderProgress();toast('Progression importée.');}catch(error){toast(error.message||'Import impossible.');}finally{e.target.value='';}};
  $('reset-progress').onclick=()=>{if(!window.confirm('Effacer toute ta progression sur cet appareil ? Cette action ne peut pas être annulée.'))return;data={version:1,records:{},history:[]};save();renderProgress();toast('Progression effacée.');};
  document.addEventListener('keydown',e=>{if(config.mode==='qcm'&&!answered&&activeView==='revision'&&!$('help-dialog').open&&!e.isComposing&&!e.target.closest('input,select,textarea')&&/^[1-4]$/.test(e.key)){e.preventDefault();chooseQcm(Number(e.key)-1);return;}if(e.key!=='Enter'||e.isComposing||activeView!=='revision'||$('help-dialog').open||e.target.closest('button,select'))return;if(answered&&!$('next-actions').hidden){e.preventDefault();next();}else if(config.mode==='flash'&&!$('flash-actions').hidden){e.preventDefault();reveal();}});
  if(document.modelContext?.registerTool){const lifecycle=new AbortController();const tools=[{name:'get_revision_state',title:'Lire la session',description:'Lire la question visible et la configuration de la session, sans révéler la réponse.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true,untrustedContentHint:false},execute:()=>state()},{name:'start_revision_session',title:'Commencer une session',description:'Remplacer la session en cours et afficher une nouvelle révision selon le sens choisi.',inputSchema:{type:'object',properties:{direction:{type:'string',enum:['mix','en-fr','fr-en']}},required:['direction'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute:input=>{if(!input||!['mix','en-fr','fr-en'].includes(input.direction)||Object.keys(input).some(k=>k!=='direction'))throw new Error('Sens de traduction invalide.');return start({direction:input.direction});}},{name:'submit_revision_answer',title:'Valider une traduction',description:'Saisir et valider une réponse dans le mode Saisie, Test ou QCM. En QCM, utiliser le texte exact d’une option affichée. Met à jour la session visible et la progression en mode Saisie.',inputSchema:{type:'object',properties:{answer:{type:'string'}},required:['answer'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute:input=>{if(!input||typeof input.answer!=='string'||!input.answer.trim()||input.answer.length>500||Object.keys(input).some(k=>k!=='answer'))throw new Error('Réponse invalide.');if(config.mode==='flash'||answered||position>=queue.length)throw new Error('La session ne peut pas recevoir de réponse.');$('answer-input').value=input.answer;return submit(input.answer);}}];for(const tool of tools){try{Promise.resolve(document.modelContext.registerTool(tool,{signal:lifecycle.signal})).catch(()=>{});}catch{}}window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});}
